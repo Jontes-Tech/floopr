@@ -1,0 +1,9 @@
+baseURL = "/"
+title = "Floopr"
+
+[menu]
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about"
+    weight = 20
