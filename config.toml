@@ -2,6 +2,9 @@ baseURL = "/"
 title = "Floopr"
 paginate = 6
 
+[taxonomies]
+  key = "key"
+
 [menu]
   [[menu.main]]
     identifier = "about"

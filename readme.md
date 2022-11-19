@@ -1,5 +1,7 @@
 # Floopr - The Free And Opensource Loop Library!
 
+![Floopr Logo](/static/img/floopr.svg)
+
 Floopr (pronounced "Flooper") is a library of uncopyrighted loops to use in your music, both free as in cost and freedom!
 
 ## Help the project!
@@ -30,9 +32,15 @@ Rock is a type of music
 ```markdown
 ---
 title: "Never Gonna Give You Up"
+author: ["RickAstley"]
+key: "csharpmajor"
+tempo: "113"
+type: "audio"
 ---
 
-Here's an example loop
+<!-- TODO: Add a description here -->
+No Description Provided!
+
 ```
 
 7. Go out of your category folder and the content folder to be at the root of the repo.

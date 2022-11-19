@@ -3,15 +3,19 @@
 <h1>{{ .Title }}</h1>
 
 {{ .Content }} {{ range .Paginator.Pages }}
-<article class="post-snippet">
-  <h3>
-    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-  </h3>
-  <audio controls>
-    <source src="/audio/{{.Page.File.Dir}}{{.Page.File.BaseFileName}}" />
-    Your browser does not support the audio element.
-  </audio>
-</article>
-{{ end }} 
-{{ partial "pagination" . }}
-{{ partial "footer.html" . }}
+<div class="container">
+  <div style="font-size:20px;">
+       <a>{{.Title}}</a>
+  </div>
+  <div style="color:grey; font-size:16px;">{{ if .Params.author }}<strong>Author(s):</strong> {{range .Params.author}}<a href="{{ "/authors/" | relLangURL }}{{ . | urlize }}">{{ . }}</a> {{end}}{{end}}</div>
+  <div class="info">{{ if .Params.key }}<strong>Key: </strong><a href="{{ "/keys/" | relLangURL }}{{ .Params.key | urlize }}">{{ .Params.key }}</a>{{end}}</div>
+  <div class="info">{{ if .Params.tempo }}<strong>Tempo: </strong><a href="{{ "/tempos/" | relLangURL }}{{ .Params.tempo | urlize }}">{{ .Params.tempo }}</a>{{end}}</div>
+  <div class="info">{{ if .Params.type }}<strong>Type: </strong><a href="{{ "/tempos/" | relLangURL }}{{ .Params.type | urlize }}">{{ .Params.type }}</a>{{end}}</div>
+    <audio controls list>
+      <source src="/audio/{{.Page.File.Dir}}{{.Page.File.BaseFileName}}" />
+      Your browser does not support the audio element.
+    </audio>
+    <br>
+    <a href="/audio/{{.Page.File.Dir}}{{.Page.File.BaseFileName}}" download="flooper-{{.Page.File.BaseFileName}}" class="dl">Download</a>
+</div>
+{{ end }} {{ partial "pagination" . }} {{ partial "footer.html" . }}

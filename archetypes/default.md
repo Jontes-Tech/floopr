@@ -1,10 +1,11 @@
 ---
 title: "{{ replace .Name "-" " " | title }}"
-author: "Chriffe"
-key: "None"
-tempo: 90
+author: ["Chriffe"]
+key: "none"
+tempo: "90"
 type: "audio"
 ---
 
 <!-- TODO: Add a description here -->
 No Description Provided!
+
