@@ -1,5 +1,5 @@
 ---
-title: "{{ replace .Name "-" " " | title }}"
+title: "Hiphop Beat 1"
 author: "Chriffe"
 key: "None"
 tempo: 90

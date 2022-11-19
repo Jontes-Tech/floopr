@@ -1,5 +1,6 @@
 baseURL = "/"
 title = "Floopr"
+paginate = 6
 
 [menu]
   [[menu.main]]
