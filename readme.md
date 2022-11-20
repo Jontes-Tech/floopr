@@ -13,8 +13,8 @@ NOTE: Save your work by "commiting"
 
 1. Make a Github fork
 2. Navigate to github.com/yourusername/floopr (you may have to click "view code")
-3. Open the `static` folder. Here you will see the existing categories. If the one you would like to post in doesn't exist, create a folder in `static` with a concise name with only lowercase characters.
-4. Upload your audio here with a filename that only has a-z, A-Z and 0-9 in a format compatible with web browsers.
+3. Open the `static` folder. Here you will see the existing categories. If the one you would like to post in doesn't exist, create a folder in `static` with a concise name with only lowercase characters and dashes.
+4. Upload your audio here with a filename that only has a-z, and dashes in a format compatible with web browsers.
 5. Now navigate out of the `static` directory
 6. Navigate into the `content` directory. If you on step 3 created a new directory, do the same here, but in your new directory create a `_index.md` file with the following content:
 
