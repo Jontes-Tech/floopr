@@ -57,3 +57,5 @@ Donations are currently not possible.
 ## Copyright
 
 The main content (anything in /static/audio) is licenced under the [CC0 License](https://creativecommons.org/share-your-work/public-domain/cc0/), while the rest is licensed under the [GPL 3.0](https://www.gnu.org/licenses/gpl-3.0.txt) license.
+
+Thanks for reading the documentation. Enjoy Floopr!
