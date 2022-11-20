@@ -1,8 +1,8 @@
 # Floopr - The Free And Opensource Loop Library!
 
 ![Floopr Logo](/static/img/floopr.svg)
-
-Floopr (pronounced "Flooper") is a library of uncopyrighted loops to use in your music, both free as in cost and freedom!
+## The Loops with Eight Billion 'Owners'
+Floopr (pronounced "Flooper") is a library of uncopyrighted loops to use in your music, both free as in cost and freedom! They are licensed under CC0 which means you are basically an owner.
 
 ## Help the project!
 
