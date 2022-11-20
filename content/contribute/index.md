@@ -26,7 +26,7 @@ Rock is a type of music
 ---
 title: "Never Gonna Give You Up"
 authors: ["RickAstley"]
-keys: "hminor"
+keys: "b-minor"
 tempos: "113"
 types: "audio"
 ---
