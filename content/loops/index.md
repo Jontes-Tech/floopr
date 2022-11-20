@@ -1,2 +1,2 @@
-# Intruments
+# Loops
 {{< categories >}}

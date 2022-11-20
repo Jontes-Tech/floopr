@@ -15,9 +15,9 @@ paginate = 6
     url = "/about"
     weight = 20
   [[menu.main]]
-    identifier = "instruments"
-    name = "Instruments"
-    url = "/instruments"
+    identifier = "loops"
+    name = "Loops"
+    url = "/loops"
     weight = 30
   [[menu.main]]
     identifier = "contribute"
