@@ -11,7 +11,7 @@
   <div class="info">{{ if .Params.keys }}<strong>Key: </strong><a href="{{ "/keys/" | relLangURL }}{{ .Params.keys | urlize }}">{{ .Params.keys }}</a>{{end}}</div>
   <div class="info">{{ if .Params.tempos }}<strong>Tempo: </strong><a href="{{ "/tempos/" | relLangURL }}{{ .Params.tempos | urlize }}">{{ .Params.tempos }}</a>{{end}}</div>
   <div class="info">{{ if .Params.types }}<strong>Type: </strong><a href="{{ "/types /" | relLangURL }}{{ .Params.types | urlize }}">{{ .Params.types }}</a>{{end}}</div>
-    <audio controls list>
+    <audio controls loop>
       <source src="/audio/{{.Page.File.Dir}}{{.Page.File.BaseFileName}}" />
       Your browser does not support the audio element.
     </audio>
