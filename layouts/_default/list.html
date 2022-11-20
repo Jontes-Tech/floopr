@@ -7,10 +7,10 @@
   <div style="font-size:20px;">
        <a>{{.Title}}</a>
   </div>
-  <div style="color:grey; font-size:16px;">{{ if .Params.author }}<strong>Author(s):</strong> {{range .Params.author}}<a href="{{ "/authors/" | relLangURL }}{{ . | urlize }}">{{ . }}</a> {{end}}{{end}}</div>
-  <div class="info">{{ if .Params.key }}<strong>Key: </strong><a href="{{ "/keys/" | relLangURL }}{{ .Params.key | urlize }}">{{ .Params.key }}</a>{{end}}</div>
-  <div class="info">{{ if .Params.tempo }}<strong>Tempo: </strong><a href="{{ "/tempos/" | relLangURL }}{{ .Params.tempo | urlize }}">{{ .Params.tempo }}</a>{{end}}</div>
-  <div class="info">{{ if .Params.type }}<strong>Type: </strong><a href="{{ "/tempos/" | relLangURL }}{{ .Params.type | urlize }}">{{ .Params.type }}</a>{{end}}</div>
+  <div style="color:grey; font-size:16px;">{{ if .Params.authors }}<strong>Contributor(s):</strong> {{range .Params.authors}}<a href="{{ "/authors/" | relLangURL }}{{ . | urlize }}">{{ . }}</a> {{end}}{{end}}</div>
+  <div class="info">{{ if .Params.keys }}<strong>Key: </strong><a href="{{ "/keys/" | relLangURL }}{{ .Params.keys | urlize }}">{{ .Params.keys }}</a>{{end}}</div>
+  <div class="info">{{ if .Params.tempos }}<strong>Tempo: </strong><a href="{{ "/tempos/" | relLangURL }}{{ .Params.tempos | urlize }}">{{ .Params.tempos }}</a>{{end}}</div>
+  <div class="info">{{ if .Params.types }}<strong>Type: </strong><a href="{{ "/types /" | relLangURL }}{{ .Params.types | urlize }}">{{ .Params.types }}</a>{{end}}</div>
     <audio controls list>
       <source src="/audio/{{.Page.File.Dir}}{{.Page.File.BaseFileName}}" />
       Your browser does not support the audio element.

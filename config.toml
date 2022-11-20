@@ -3,7 +3,10 @@ title = "Floopr"
 paginate = 6
 
 [taxonomies]
-  key = "key"
+  key = "keys"
+  author = "authors"
+  tempo = "tempos"
+  type = "types"
 
 [menu]
   [[menu.main]]

@@ -1,9 +1,9 @@
 ---
 title: "Hiphop Beat 1"
-author: ["Chriffe"]
-key: "none"
-tempo: "90"
-type: "audio"
+authors: ["Chriffe"]
+keys: "none"
+tempos: "90"
+types: "audio"
 ---
 
 <!-- TODO: Add a description here -->
