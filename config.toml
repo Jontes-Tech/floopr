@@ -14,3 +14,13 @@ paginate = 6
     name = "About"
     url = "/about"
     weight = 20
+  [[menu.main]]
+    identifier = "instruments"
+    name = "Instruments"
+    url = "/instruments"
+    weight = 30
+  [[menu.main]]
+    identifier = "contribute"
+    name = "Contribute"
+    url = "/contribute"
+    weight = 40

@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 20010904//EN'  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
-<svg style="stroke-width:2; stroke:green; fill:#fff" width="86px" height="64px" version="1.0" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+<svg height="64px" version="1.0" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+<style>
+g {
+    fill: #0f172a
+}
+@media ( prefers-color-scheme: dark ) {
+    g {
+        fill: #e2e8f0
+    }
+}
+</style>
 <g transform="translate(0 1080) scale(.1 -.1)">
 <path d="m3140 8049c-428-53-831-323-1014-678-105-205-127-337-133-813l-5-358h-184-184v-430-430h185 185v-1030-1030h515 515v1030 1030h360 360v430 430h-361-361l5 318c3 174 10 340 16 367 27 125 100 219 194 253 128 45 279 22 495-75 9-4 12 88 12 441v446l-37 16c-66 27-180 62-240 73-86 16-238 21-323 10z"/>
 <path d="m4100 5655v-2375h615 615v2375 2375h-615-615v-2375z"/>
