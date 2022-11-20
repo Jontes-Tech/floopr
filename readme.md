@@ -32,10 +32,10 @@ Rock is a type of music
 ```markdown
 ---
 title: "Never Gonna Give You Up"
-author: ["RickAstley"]
-key: "csharpmajor"
-tempo: "113"
-type: "audio"
+authors: ["RickAstley"]
+keys: "hminor"
+tempos: "113"
+types: "audio"
 ---
 
 <!-- TODO: Add a description here -->
