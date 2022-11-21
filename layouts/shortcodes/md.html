@@ -1,0 +1,4 @@
+  <div style="color:grey; font-size:16px;">{{ if .Page.Params.authors }}<strong>Contributor(s):</strong> {{range .Page.Params.authors}}<a href="{{ "/authors/" | relLangURL }}{{ . | urlize }}">{{ . }}</a> {{end}}{{end}}</div>
+  <div class="info">{{ if .Page.Params.keys }}<strong>Key: </strong><a href="{{ "/keys/" | relLangURL }}{{ .Page.Params.keys | urlize }}">{{ .Page.Params.keys }}</a>{{end}}</div>
+  <div class="info">{{ if .Page.Params.tempos }}<strong>Tempo: </strong><a href="{{ "/tempos/" | relLangURL }}{{ .Page.Params.tempos | urlize }}">{{ .Page.Params.tempos }}</a>{{end}}</div>
+  <div class="info">{{ if .Page.Params.types }}<strong>Type: </strong><a href="{{ "/types /" | relLangURL }}{{ .Page.Params.types | urlize }}">{{ .Page.Params.types }}</a>{{end}}</div>

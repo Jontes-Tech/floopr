@@ -5,7 +5,7 @@
 {{ .Content }} {{ range .Paginator.Pages }}
 <div class="container">
   <div style="font-size:20px;">
-       <a>{{.Title}}</a>
+       <a href={{.RelPermalink}}>{{.Title}}</a>
   </div>
   <div style="color:grey; font-size:16px;">{{ if .Params.authors }}<strong>Contributor(s):</strong> {{range .Params.authors}}<a href="{{ "/authors/" | relLangURL }}{{ . | urlize }}">{{ . }}</a> {{end}}{{end}}</div>
   <div class="info">{{ if .Params.keys }}<strong>Key: </strong><a href="{{ "/keys/" | relLangURL }}{{ .Params.keys | urlize }}">{{ .Params.keys }}</a>{{end}}</div>
