@@ -2,7 +2,8 @@
 title: "Home"
 ---
 
-![Welcome to Floopr](/img/floopr-static.svg)  
+{{< logo >}}
+
 ## Eight Billion Owners
 Floopr is a music loop library free as in speech.
 You may use "our" loops for any purpose, without any credit whatsoever.

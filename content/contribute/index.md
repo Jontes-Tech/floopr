@@ -29,6 +29,7 @@ authors: ["RickAstley"]
 keys: "b-minor"
 tempos: "113"
 types: "audio"
+timesigs: "4-4"
 ---
 {{< md >}}
 

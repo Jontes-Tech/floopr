@@ -4,6 +4,7 @@ authors: ["Chriffe"]
 keys: "none"
 tempos: "90"
 types: "audio"
+timesigs: "4-4"
 ---
 {{< md >}}
 
