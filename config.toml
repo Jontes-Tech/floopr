@@ -21,6 +21,11 @@ paginate = 6
     url = "/loops"
     weight = 30
   [[menu.main]]
+    identifier = "terms"
+    name = "Terms of use"
+    url = "/terms"
+    weight = 40
+  [[menu.main]]
     identifier = "contribute"
     name = "Contribute"
     url = "/contribute"
