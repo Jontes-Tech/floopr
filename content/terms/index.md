@@ -1,8 +1,7 @@
 ---
-title: "About"
+title: "Terms"
 ---
 
-## Terms
 Uploading music loops to Floopr you agree to the following terms and conditions:
 
 1. All the sounds uploaded to Floopr are licensed under CC0, and should be considered public domain and free to use.
