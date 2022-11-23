@@ -1,5 +1,5 @@
 baseURL = "/"
-title = "Floopr"
+title = "Floopr, The Free Loop Libary"
 paginate = 6
 
 [taxonomies]

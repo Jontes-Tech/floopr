@@ -2,7 +2,7 @@
 title: "Home"
 ---
 
-{{< logo >}}
+# {{< logo >}}
 
 ## Eight Billion Owners
 Floopr is a free music loop library. We believe that tools for music creation should be free and accessible for everyone.
