@@ -4,7 +4,7 @@ authors: ["Chriffe"]
 key: "none"
 tempo: "90"
 type: "audio"
-timesig: "4-4"
+timesig: "4SLASH4"
 ---
 {{< md >}}
 

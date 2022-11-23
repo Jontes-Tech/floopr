@@ -1,6 +1,6 @@
 {{ partial "header.html" . }}
 
-<h1>{{ .Title }}</h1>
+<h1>{{ replace .Title "SLASH" "/"}}</h1>
 
 {{ .Content }} {{ range .Paginator.Pages }}
 <div class="container">
@@ -9,9 +9,9 @@
   </div>
   <div style="color:grey; font-size:16px;">{{ if .Params.authors }}<strong>Contributor(s):</strong> {{range .Params.authors}}<a href="{{ "/authors/" | relLangURL }}{{ . | urlize }}">{{ . }}</a> {{end}}{{end}}</div>
   <div class="info">{{ if .Params.key }}<strong>Key: </strong><a href="{{ "/key/" | relLangURL }}{{ .Params.key | urlize }}">{{ .Params.key}}</a>{{end}}</div>
-  <div class="info">{{ if .Params.timesig }}<strong>Time Signature: </strong><a href="{{ "/timesig/" | relLangURL }}{{ .Params.timesig | urlize }}">{{ .Params.timesig }}</a>{{end}}</div>
-  <div class="info">{{ if .Params.tempo }}<strong>Tempo: </strong><a href="{{ "/tempo/" | relLangURL }}{{ .Params.tempo | urlize }}">{{ .Params.tempo }}</a>{{end}}</div>
-  <div class="info">{{ if .Params.type }}<strong>Type: </strong><a href="{{ "/type/" | relLangURL }}{{ .Params.type | urlize }}">{{ .Params.type }}</a>{{end}}</div>
+  <div class="info">{{ if .Params.timesig }}<strong>Time Signature: </strong><a href="{{ "/timesig/" | relLangURL }}{{ .Params.timesig | lower}}">{{ replace .Params.timesig "SLASH" "/"}}</a>{{end}}</div>
+  <div class="info">{{ if .Params.tempo }}<strong>Tempo: </strong><a href="{{ "/tempo/" | relLangURL }}{{ .Params.tempo | urlize }}">{{ .Params.tempo }} BPM</a>{{end}}</div>
+  <div class="info">{{ if .Params.type }}<strong>Type: </strong><a href="{{ "/type/" | relLangURL }}{{ .Params.type }}">{{ .Params.type }}</a>{{end}}</div>
     <audio controls loop>
       <source src="/audio/{{.Page.File.Dir}}{{.Page.File.BaseFileName}}" />
       <source src="/audio/{{.Page.File.Dir}}{{.Page.File.BaseFileName}}.preview">

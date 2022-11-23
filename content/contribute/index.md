@@ -29,7 +29,7 @@ authors: ["RickAstley"]
 keys: "b-minor"
 tempo: "113"
 type: "audio"
-timesign: "4-4"
+timesign: "4SLASH4"
 ---
 {{< md >}}
 

@@ -4,7 +4,7 @@ authors: ["Chriffe"]
 key: "C-major"
 tempo: "100"
 type: "midi"
-timesig: "4-4"
+timesig: "4SLASH4"
 ---
 {{< md >}}
 

@@ -114,6 +114,7 @@ a {
 }
 .container {
   background-color: #1e293b;
+  margin: 20px;
   padding: 10px;
   border-radius: 10px;
 }
