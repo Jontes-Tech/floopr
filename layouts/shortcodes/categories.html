@@ -1,3 +1,11 @@
+<section class="basic-grid">
 {{ range .Site.Sections }}
-<li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
-{{ end }}
+  <a href="{{ .Permalink }}">
+    <img
+      class="card"
+      src="/img/instrument/{{.Title | urlize}}.webp"
+      alt="{{.Title}}"
+    />
+  </a>
+  {{ end }}
+</section>
