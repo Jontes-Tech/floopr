@@ -1,5 +1,5 @@
 ---
-title: "Piano 1 - 1st inversion"
+title: "Piano pattern 1 - 2nd major"
 authors: ["Chriffe"]
 key: "C-major"
 tempo: "100"
