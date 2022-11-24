@@ -13,11 +13,11 @@
   <div class="info">{{ if .Params.tempo }}<strong>Tempo: </strong><a href="{{ "/tempo/" | relLangURL }}{{ .Params.tempo | urlize }}">{{ .Params.tempo }} BPM</a>{{end}}</div>
   <div class="info">{{ if .Params.type }}<strong>Type: </strong><a href="{{ "/type/" | relLangURL }}{{ .Params.type }}">{{ .Params.type }}</a>{{end}}</div>
     <audio controls loop>
-      <source src="/audio/{{.Page.File.Dir}}{{.Page.File.BaseFileName}}" />
-      <source src="/audio/{{.Page.File.Dir}}{{.Page.File.BaseFileName}}.preview">
+      <source src="https://cdn.jsdelivr.net/gh/Jontes-Tech/floopr@master/static/audio/{{.Page.File.Dir}}{{.Page.File.BaseFileName}}" />
+      <source src="https://cdn.jsdelivr.net/gh/Jontes-Tech/floopr@master/static/audio/{{.Page.File.Dir}}{{.Page.File.BaseFileName}}.preview">
       Your browser does not support the audio element.
     </audio>
     <br>
-    <a href="/audio/{{.Page.File.Dir}}{{.Page.File.BaseFileName}}" download="flooper-{{.Page.File.BaseFileName}}" class="dl">Download</a>
+    <a href="https://cdn.jsdelivr.net/gh/Jontes-Tech/floopr@master/static/audio/{{.Page.File.Dir}}{{.Page.File.BaseFileName}}" download="flooper-{{.Page.File.BaseFileName}}" class="dl">Download</a>
 </div>
 {{ end }} {{ partial "pagination" . }} {{ partial "footer.html" . }}
