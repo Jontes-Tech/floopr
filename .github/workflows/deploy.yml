@@ -14,7 +14,7 @@ jobs:
       - uses: jakejarvis/hugo-build-action@master
         with:
           args: --minify --gc
-      - run: rm -r public/audio
+      - run: sudo rm -r public/audio
       - name: Edgeserver Upload
         uses: lvkdotsh/edgeserver-action@master
         with:
