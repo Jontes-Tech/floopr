@@ -15,10 +15,10 @@
   <br>
     <audio controls loop>
       <source src="{{$url}}/audio/{{.Page.File.Dir}}{{.Page.File.BaseFileName}}" />
-      <source src="https://cdn.jsdelivr.net/gh/Jontes-Tech/floopr@master/static/audio/{{.Page.File.Dir}}{{.Page.File.BaseFileName}}.preview">
+      <source src="{{$url}}/audio/{{.Page.File.Dir}}{{.Page.File.BaseFileName}}.audio">
       Your browser does not support the audio element.
     </audio>
     <br>
-    <a href="https://cdn.jsdelivr.net/gh/Jontes-Tech/floopr@master/static/audio/{{.Page.File.Dir}}{{.Page.File.BaseFileName}}" download="flooper-{{.Page.File.BaseFileName}}" class="dl">Download</a>
+    <a href="{{$url}}/audio/{{.Page.File.Dir}}{{.Page.File.BaseFileName}}" download="flooper-{{.Page.File.BaseFileName}}" class="dl">Download</a>
 </div>
 {{ end }} {{ partial "pagination" . }} {{ partial "footer.html" . }}
