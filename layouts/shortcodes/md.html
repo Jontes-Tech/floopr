@@ -5,8 +5,16 @@
   <div class="info">{{ if .Page.Params.type }}<strong>Type: </strong><a href="{{ "/type/" | relLangURL }}{{ .Page.Params.types | urlize }}">{{ .Page.Params.type }}</a>{{end}}</div>
   <audio controls loop>
     <source src="{{$url}}/audio/{{.Page.File.Dir}}{{.Page.File.BaseFileName}}" />
+    {{if fileExists "{{$url}}/audio/{{.Page.File.Dir}}{{.Page.File.BaseFileName}}.audio"}}
     <source src="{{$url}}/audio/{{.Page.File.Dir}}{{.Page.File.BaseFileName}}.audio">
+    {{end}}
     Your browser does not support the audio element.
   </audio>
   <br>
+  {{if (eq .Page.Params.type "midi")}}
+  <strong>Download:</strong>
+  <a href="{{$url}}/audio/{{.Page.File.Dir}}{{.Page.File.BaseFileName}}" download="flooper-AUDIO-f{{.Page.File.BaseFileName}}" class="dl">Midi</a>
+  <a href="{{$url}}/audio/{{.Page.File.Dir}}{{.Page.File.BaseFileName}}.audio" download="flooper-MIDI-{{.Page.File.BaseFileName}}" class="dl">Audio</a>
+  {{else}}
   <a href="{{$url}}/audio/{{.Page.File.Dir}}{{.Page.File.BaseFileName}}" download="flooper-{{.Page.File.BaseFileName}}" class="dl">Download</a>
+  {{end}}
