@@ -1,0 +1,186 @@
+Contribute to Floopr
+<script>
+  // yes we do need javascript
+  async function send(d) {
+    const res = await fetch("https://cdn.nodesite.eu/put", {
+      method: "PUT",
+      body: d,
+    });
+
+    const hash =
+      res.headers.get("content-type")?.toLowerCase() == "application/json"
+        ? (await res.json()).hash
+        : await res.text();
+
+    return hash;
+  }
+  async function submit() {
+    console.log("Initiate submit");
+    console.log("Performing sanity checks");
+    // Yes, we do have code duplication, deal with it.
+
+    if (!document.getElementById("title").value) {
+      alert("You must specify a title");
+      return;
+    }
+    if (!document.getElementById("category").value) {
+      alert("You must specify a category");
+      return;
+    }
+    if (!document.getElementById("email").value) {
+      alert("You must specify an email");
+      return;
+    }
+    if (!document.getElementById("creator").value) {
+      alert("You must specify a creator");
+      return;
+    }
+    if (!document.getElementById("key").value) {
+      alert("You must specify a key");
+      return;
+    }
+    if (!document.getElementById("tempo").value) {
+      alert("You must specify a tempo");
+      return;
+    }
+    if (!document.getElementById("type").value) {
+      alert("You must specify a type");
+      return;
+    }
+    if (!document.getElementById("timesig").value) {
+      alert("You must specify a timesignature");
+      return;
+    }
+    if (!document.getElementById("description").value) {
+      alert("You must specify a description");
+      return;
+    }
+    if (!document.getElementById("audio").files.length > 0) {
+      alert("You must specify an audio clip");
+      return;
+    }
+
+    if (document.getElementById("type").value === "midi") {
+    } else {
+      let audio = await send(document.getElementById("audio").files[0]);
+    }
+
+    console.log("Done uploading files, uploading to API");
+    fetch("http://localhost:3000/contribute", {
+      method: "POST",
+      body: JSON.stringify({
+        title: document.getElementById("title").value,
+        category: document.getElementById("category").value,
+        email: document.getElementById("email").value,
+        creator: document.getElementById("creator").value,
+        key: document.getElementById("key").value,
+        tempo: document.getElementById("tempo").value,
+        timesig: document.getElementById("timesig").value,
+        description: document.getElementById("description").value,
+        audio: audio,
+        midi:
+          document.getElementById("type").value === "midi"
+            ? document.getElementById("audio").files[0]
+            : "",
+        token: hcaptcha.getResponse(),
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then(function (response) {
+        if (!response.ok) {
+          throw Error(response.statusText);
+        }
+        return response;
+      })
+      .then(function (response) {
+        alert("Thank you for submitting!");
+        console.log("Done uploading.");
+      })
+      .catch(function (error) {
+        alert(error);
+        console.log(error);
+      });
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/synth-js@0.1.2/dst/synth.min.js"></script>
+<noscript
+  ><p class="noscript">
+    Oh no! You seem to not like Javascript! Too bad. This page needs it.
+  </p></noscript
+>
+<div class="container">
+  <label for="title">Email</label><br />
+  <input
+    type="email"
+    name="email"
+    id="email"
+    placeholder="hi@example.org"
+  /><br />
+  <label for="title">Name of the loop</label><br />
+  <input
+    type="text"
+    name="title"
+    id="title"
+    placeholder="Never Gonna Give You Up"
+  /><br />
+  <label for="creator">Creator(s) of the loop in quotes comma seperated.</label
+  ><br />
+  <input
+    type="text"
+    id="creator"
+    name="creator"
+    placeholder='"Rick Astley", "John Doe"'
+  /><br />
+  <label for="tempo">Tempo of the track</label><br />
+  <input type="number" id="tempo" name="tempo" placeholder="113" /><br />
+  <select id="key">
+    <option value="" disabled selected>Select a key</option>
+    <option value="hi">hi</option></select
+  ><br />
+  <select onchange="changetype()" id="type">
+    <option value="" disabled selected>Select a type of loop</option>
+    <option value="audio">audio</option>
+    <option value="midi">midi</option></select
+  ><br />
+  <select id="timesig">
+    <option value="" disabled selected>Select a time signature</option>
+    <option value="2SLASH4">2/4</option>
+    <option value="4SLASH4">4/4</option></select
+  ><br />
+  <select id="category">
+    <option value="" disabled selected>Select a category</option>
+    <option value="bass">Bass</option>
+    <option value="drums">Drums</option>
+    <option value="fx">Fx</option>
+    <option value="guitar">Guitar</option>
+    <option value="keys">Keys</option>
+    <option value="orchestral">Orchestal</option>
+    <option value="vocals">Vocal</option>
+    <option value="other">Other</option></select
+  ><br />
+  <textarea id="description" placeholder="Description"></textarea>
+</div>
+<div class="container">
+  <input
+    type="file"
+    id="audio"
+    name="audio"
+    accept="audio/mpeg, audio/ogg, audio/wav, audio/midi, audio/x-midi"
+  />
+</div>
+<div class="container">
+  <span style="font-size: small"
+    >(by clicking "upload" you agree to the
+    <a href="/terms">terms of service!</a>)</span
+  ><br />
+  <div
+    class="h-captcha"
+    data-callback=""
+    data-theme="dark"
+    data-sitekey="4bec7ac0-beac-4fc3-b7c6-cf74e5b27601"
+  ></div>
+  <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+  <button onclick="submit()">Upload</button>
+</div>
