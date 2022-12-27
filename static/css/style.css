@@ -1,27 +1,5 @@
-body {
-  color: #f1f5f9;
-  font-size: 125%;
-  max-width: 45rem;
-  padding: 1rem;
-  margin: 0 auto;
-  background-color: #0f172a;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
-
-a {
-  color: #fde68a;
-}
-
-.content {
-  margin-bottom: 2rem;
-}
-
-/* NAVIGATION */
-
 .site-nav {
   display: flex;
-  border-radius: 10px;
-  background-color: #1e293b;
   box-shadow: 0px 10px 27px -3px rgba(0,0,0,0.1);
 }
 
@@ -112,16 +90,6 @@ a {
     animation: octocat-wave 560ms ease-in-out;
   }
 }
-.container {
-  background-color: #1e293b;
-  margin: 20px;
-  padding: 10px;
-  border-radius: 10px;
-}
-.info {
-  color: grey;
-  font-size: 16px;
-}
 
 .basic-grid {
   display: grid;
@@ -146,16 +114,11 @@ a {
   background-position: center;
   background-repeat: no-repeat;
 }
-
 .card:hover {
   box-shadow: rgba(2, 8, 20, 0.1) 0px 0.35em 1.175em, rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em;
   transform: translateY(-3px) scale(1.04);
 }
-.output {
-  font-size: 12px;
-}
-.noscript {
-  background-color: #ef4444;
-  color: black;
-  border-radius: 4px;
+
+main {
+  flex: 1; /* Or flex-grow: 1;*/
 }

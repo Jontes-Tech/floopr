@@ -1,6 +1,6 @@
 <section class="basic-grid">
 {{ range .Site.Sections }}
-  <a href="{{ .Permalink }}">
+  <a href="{{ .RelPermalink }}">
     <img
       class="card"
       src="/img/instrument/{{.Title | urlize}}.webp"

@@ -1,7 +1,7 @@
 ---
 title: "Hiphop Beat 1"
 authors: ["Chriffe"]
-key: "none"
+key: "None"
 tempo: "90"
 type: "audio"
 timesig: "4SLASH4"

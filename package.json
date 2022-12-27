@@ -1,0 +1,13 @@
+{
+  "name": "floopr",
+  "version": "1.0.0",
+  "description": "Floopr is a free music loop library. We believe that tools for music creation should be free and accessible for everyone.",
+  "keywords": [],
+  "scripts": {
+    "build-tw": "npx tailwindcss -i ./assets/main.css -o ./assets/style.css --watch",
+    "build-tw-min": "npx tailwindcss -i ./assets/main.css -o ./assets/style.css --minify",
+    "dev": "hugo server"
+  },
+  "author": "The Floopr Authors",
+  "license": "GPLV3 OR LATER"
+}

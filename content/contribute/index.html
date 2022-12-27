@@ -1,19 +1,219 @@
 Contribute to Floopr
+<noscript>
+  <p class="noscript">
+    Oh no! You seem to not like Javascript! Too bad. This page needs it.
+  </p>
+</noscript>
+
+<div class="container">
+  <div class="mb-4">
+    <label for="email" class="block text-sm font-medium text-white"
+      >Your email</label
+    >
+    <input
+      type="email"
+      id="email"
+      name="email"
+      class="w-64 border text-sm rounded-lg block p-2.5 bg-neutral-700 border-neutral-600 placeholder-neutral-400 text-white focus:ring-darkGreen focus:border-darkGreen"
+      placeholder="anonymous@floopr.org"
+    />
+    <p id="helper-text-explanation" class="mt-2 text-sm text-neutral-400">
+      We never share your email, but we do store it securely.
+    </p>
+  </div>
+  <div class="mb-4">
+    <label for="title" class="block text-sm font-medium text-white"
+      >The Title of the loop</label
+    >
+    <input
+      type="text"
+      id="title"
+      name="title"
+      class="w-64 border text-sm rounded-lg block p-2.5 bg-neutral-700 border-neutral-600 placeholder-neutral-400 text-white focus:ring-darkGreen focus:border-darkGreen"
+      placeholder="Never Gonna Give You Up"
+    />
+  </div>
+  <div class="mb-4">
+    <label for="creator" class="block text-sm font-medium text-white"
+      >Creator (Usually your name), in quotes.</label
+    >
+    <input
+      type="text"
+      id="creator"
+      name="creator"
+      class="w-64 border text-sm rounded-lg block p-2.5 bg-neutral-700 border-neutral-600 placeholder-neutral-400 text-white focus:ring-darkGreen focus:border-darkGreen"
+      placeholder='"Rick Astley", "John Doe"'
+    />
+  </div>
+  <div class="mb-4">
+    <label for="tempo" class="block text-sm font-medium text-white"
+      >Tempo of the loop (in BPM, if unsure, select 0)</label
+    >
+    <input
+      type="number"
+      id="tempo"
+      name="tempo"
+      class="w-64 border text-sm rounded-lg block p-2.5 bg-neutral-700 border-neutral-600 placeholder-neutral-400 text-white focus:ring-darkGreen focus:border-darkGreen"
+      placeholder="113"
+    />
+  </div>
+  <div class="mb-4">
+    <label for="key" class="block mb-2 text-sm font-medium text-white"
+      >Key of the loop</label
+    >
+    <select
+      id="key"
+      name="key"
+      class="w-64 border text-sm rounded-lg block p-2.5 bg-neutral-700 border-neutral-600 placeholder-neutral-400 text-white focus:ring-darkGreen focus:border-darkGreen"
+    >
+      <option value="None">None</option>
+    </select>
+  </div>
+  <div class="mb-4">
+    <label for="type" class="block mb-2 text-sm font-medium text-white"
+      >Type of Loop</label
+    >
+    <select
+      id="type"
+      name="type"
+      class="w-64 border text-sm rounded-lg block p-2.5 bg-neutral-700 border-neutral-600 placeholder-neutral-400 text-white focus:ring-darkGreen focus:border-darkGreen"
+    >
+      <option value="audio">Audio</option>
+      <option value="midi">Midi</option>
+    </select>
+  </div>
+
+  <div class="mb-4">
+    <label for="category" class="block mb-2 text-sm font-medium text-white"
+      >Category</label
+    >
+    <select
+      id="category"
+      name="category"
+      class="w-64 border text-sm rounded-lg block p-2.5 bg-neutral-700 border-neutral-600 placeholder-neutral-400 text-white focus:ring-darkGreen focus:border-darkGreen"
+    >
+      <option value="other">Other or Don't Know</option>
+      <option value="bass">Bass</option>
+      <option value="drums">Drums</option>
+      <option value="fx">Fx</option>
+      <option value="guitar">Guitar</option>
+      <option value="keys">Keys</option>
+      <option value="orchestral">Orchestal</option>
+      <option value="vocals">Vocal</option>
+    </select>
+  </div>
+  <div class="mb-4">
+    <label class="block text-sm font-medium text-white">Time Signature</label>
+    <div class="flex">
+      <input
+        type="number"
+        id="timesig1"
+        class="mr-2 w-16 border text-sm rounded-lg block p-2.5 bg-neutral-700 border-neutral-600 placeholder-neutral-400 text-white focus:ring-darkGreen focus:border-darkGreen"
+        placeholder="4"
+      />
+      <span
+        class="border text-sm rounded-lg block p-2.5 bg-neutral-600 border-neutral-600"
+        >/</span
+      >
+      <input
+        type="number"
+        id="timesig2"
+        class="ml-2 w-16 border text-sm rounded-lg block p-2.5 bg-neutral-700 border-neutral-600 placeholder-neutral-400 text-white focus:ring-darkGreen focus:border-darkGreen"
+        placeholder="4"
+      />
+    </div>
+  </div>
+  <div class="mb-4">
+    <label for="message" class="block mb-2 tex t-sm font-medium text-white"
+      >Description</label
+    >
+    <textarea
+      id="description"
+      rows="4"
+      class="block p-2.5 w-full text-sm rounded-lg border bg-neutral-700 border-neutral-600 placeholder-neutral-400 text-white focus:ring-darkGreen focus:border-darkGreen"
+      placeholder="Concisely describe your Loop."
+    ></textarea>
+  </div>
+</div>
+<div class="mb-4">
+  <label class="block mb-2 text-sm font-medium text-white" for="audio"
+    >Upload file (mp3, wav, ogg)</label
+  >
+  <input
+    name="audio"
+    accept="audio/mpeg, audio/ogg, audio/wav, audio/midi, audio/x-midi"
+    class="p-2 block w-full text-sm rounded-lg border cursor-pointer text-neutral-400 focus:outline-none bg-neutral-700 border-neutral-600"
+    id="audio"
+    type="file"
+  />
+</div>
+<div class="mb-4">
+  <div
+    class="h-captcha mb-4"
+    data-callback=""
+    data-theme="dark"
+    data-sitekey="4bec7ac0-beac-4fc3-b7c6-cf74e5b27601"
+  ></div>
+  <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+  <div class="flex items-start mb-6">
+    <div class="flex items-center h-5">
+      <input
+        id="terms"
+        type="checkbox"
+        value=""
+        class="w-4 h-4 rounded border focus:ring-3 bg-gray-700 border-gray-600 focus:ring-darkGreen ring-offset-gray-800"
+        required
+      />
+    </div>
+    <label for="terms" class="ml-2 text-sm font-medium text-gray-300"
+      >I agree with the
+      <a href="/terms" class="text-lightGreen hover:underline">terms</a> and the
+      fact that we store your entered details (securely).</label
+    >
+  </div>
+  <button
+    onclick="submit()"
+    class="text-white focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-darkGreen hover:bg-darkGreen focus:ring-darkGreen"
+  >
+    Upload to Floopr.org
+  </button>
+</div>
 <script>
   // yes we do need javascript
-  async function send(d) {
-    const res = await fetch("https://cdn.nodesite.eu/put", {
-      method: "PUT",
-      body: d,
-    });
+  async function send(d, r) {
+    if (document.getElementById("type").value === "audio" || r) {
+      console.log("It's audio or raw");
+      const res = await fetch("https://cdn.nodesite.eu/put", {
+        method: "PUT",
+        body: d,
+      });
 
-    const hash =
-      res.headers.get("content-type")?.toLowerCase() == "application/json"
-        ? (await res.json()).hash
-        : await res.text();
+      const hash =
+        res.headers.get("content-type")?.toLowerCase() == "application/json"
+          ? (await res.json()).hash
+          : await res.text();
 
-    return hash;
+      return hash;
+    } else {
+      console.log("It's MIDI");
+      const res = await fetch("https://synth.nodesite.eu:20122/api/synth", {
+        method: "PUT",
+        body: d,
+        headers: {
+          "Content-Type": "audio/midi",
+          "Content-Length": d.length,
+        },
+      });
+
+      const hash =
+        res.headers.get("content-type")?.toLowerCase() == "application/json"
+          ? (await res.json()).wav
+          : await res.text();
+
+      return hash;
+    }
   }
+
   async function submit() {
     console.log("Initiate submit");
     console.log("Performing sanity checks");
@@ -28,7 +228,9 @@ Contribute to Floopr
       return;
     }
     if (!document.getElementById("email").value) {
-      alert("You must specify an email");
+      alert(
+        "You must specify an email, you may specify 'anonymous@floopr.org', but it is strongly discouraged."
+      );
       return;
     }
     if (!document.getElementById("creator").value) {
@@ -47,7 +249,10 @@ Contribute to Floopr
       alert("You must specify a type");
       return;
     }
-    if (!document.getElementById("timesig").value) {
+    if (
+      !document.getElementById("timesig1").value ||
+      !document.getElementById("timesig2").value
+    ) {
       alert("You must specify a timesignature");
       return;
     }
@@ -59,13 +264,22 @@ Contribute to Floopr
       alert("You must specify an audio clip");
       return;
     }
-
-    if (document.getElementById("type").value === "midi") {
-    } else {
-      let audio = await send(document.getElementById("audio").files[0]);
+    if (!document.getElementById("terms").checked) {
+      alert("You must agree to our Terms and Data Collection Policy.");
+      return;
     }
 
+    function killem() {
+      alert("You must upload a correct filetype");
+      return;
+    }
+    console.log("All sanity checks completed successfully!");
     console.log("Done uploading files, uploading to API");
+    let hash = await send(document.getElementById("audio").files[0], true);
+    let midi =
+      document.getElementById("type").value === "midi"
+        ? await send(document.getElementById("audio").files[0], false)
+        : "";
     fetch("http://localhost:3000/contribute", {
       method: "POST",
       body: JSON.stringify({
@@ -75,14 +289,23 @@ Contribute to Floopr
         creator: document.getElementById("creator").value,
         key: document.getElementById("key").value,
         tempo: document.getElementById("tempo").value,
-        timesig: document.getElementById("timesig").value,
+        timesig:
+          document.getElementById("timesig1").value +
+          "SLASH" +
+          document.getElementById("timesig2").value,
+        type: document.getElementById("type").value,
+        filename: String(document.getElementById("title").value)
+          .toLowerCase()
+          .replace(/[ \-]+/g, "-")
+          .replace(/[^a-z\d\-]/gi, ""),
         description: document.getElementById("description").value,
-        audio: audio,
-        midi:
-          document.getElementById("type").value === "midi"
-            ? document.getElementById("audio").files[0]
-            : "",
+        audio: hash,
+        midi: document.getElementById("type").value === "midi" ? midi : "",
         token: hcaptcha.getResponse(),
+        filetype: document
+          .getElementById("audio")
+          .files[0].name.split(".")
+          .pop(),
       }),
       headers: {
         "Content-Type": "application/json",
@@ -92,95 +315,15 @@ Contribute to Floopr
         if (!response.ok) {
           throw Error(response.statusText);
         }
+        alert("Thank you for submitting!");
+        console.log("Done uploading. Redirecting!");
+        window.location.href = "/thanks";
         return response;
       })
-      .then(function (response) {
-        alert("Thank you for submitting!");
-        console.log("Done uploading.");
-      })
+      .then(function (response) {})
       .catch(function (error) {
         alert(error);
         console.log(error);
       });
   }
 </script>
-<script src="https://cdn.jsdelivr.net/npm/synth-js@0.1.2/dst/synth.min.js"></script>
-<noscript
-  ><p class="noscript">
-    Oh no! You seem to not like Javascript! Too bad. This page needs it.
-  </p></noscript
->
-<div class="container">
-  <label for="title">Email</label><br />
-  <input
-    type="email"
-    name="email"
-    id="email"
-    placeholder="hi@example.org"
-  /><br />
-  <label for="title">Name of the loop</label><br />
-  <input
-    type="text"
-    name="title"
-    id="title"
-    placeholder="Never Gonna Give You Up"
-  /><br />
-  <label for="creator">Creator(s) of the loop in quotes comma seperated.</label
-  ><br />
-  <input
-    type="text"
-    id="creator"
-    name="creator"
-    placeholder='"Rick Astley", "John Doe"'
-  /><br />
-  <label for="tempo">Tempo of the track</label><br />
-  <input type="number" id="tempo" name="tempo" placeholder="113" /><br />
-  <select id="key">
-    <option value="" disabled selected>Select a key</option>
-    <option value="hi">hi</option></select
-  ><br />
-  <select onchange="changetype()" id="type">
-    <option value="" disabled selected>Select a type of loop</option>
-    <option value="audio">audio</option>
-    <option value="midi">midi</option></select
-  ><br />
-  <select id="timesig">
-    <option value="" disabled selected>Select a time signature</option>
-    <option value="2SLASH4">2/4</option>
-    <option value="4SLASH4">4/4</option></select
-  ><br />
-  <select id="category">
-    <option value="" disabled selected>Select a category</option>
-    <option value="bass">Bass</option>
-    <option value="drums">Drums</option>
-    <option value="fx">Fx</option>
-    <option value="guitar">Guitar</option>
-    <option value="keys">Keys</option>
-    <option value="orchestral">Orchestal</option>
-    <option value="vocals">Vocal</option>
-    <option value="other">Other</option></select
-  ><br />
-  <textarea id="description" placeholder="Description"></textarea>
-</div>
-<div class="container">
-  <input
-    type="file"
-    id="audio"
-    name="audio"
-    accept="audio/mpeg, audio/ogg, audio/wav, audio/midi, audio/x-midi"
-  />
-</div>
-<div class="container">
-  <span style="font-size: small"
-    >(by clicking "upload" you agree to the
-    <a href="/terms">terms of service!</a>)</span
-  ><br />
-  <div
-    class="h-captcha"
-    data-callback=""
-    data-theme="dark"
-    data-sitekey="4bec7ac0-beac-4fc3-b7c6-cf74e5b27601"
-  ></div>
-  <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
-  <button onclick="submit()">Upload</button>
-</div>

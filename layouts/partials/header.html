@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<link rel="icon" type="image/svg" href="/img/floopr-mini.svg">
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <link rel="icon" type="image/svg" href="/img/floopr-mini.svg" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-	<title>{{ if not .IsHome }}{{ .Title }} | {{ end }}{{ .Site.Title }}</title>
-	<meta name="description" content="Floopr is a free music loop library. We believe that tools for music creation should be free and accessible for everyone.">
-	<link rel="stylesheet" href="/css/style.css" type="text/css" media="all" />
+    <title>{{ if not .IsHome }}{{ .Title }} | {{ end }}{{ .Site.Title }}</title>
+    <meta
+      name="description"
+      content="Floopr is a free music loop library. We believe that tools for music creation should be free and accessible for everyone."
+    />
+    <link rel="stylesheet" href="/css/style.css" type="text/css" media="all" />
 
-	{{ with .OutputFormats.Get "rss" -}}
-		{{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
-	{{ end -}}
+    {{ with .OutputFormats.Get "rss" -}} {{ printf `
+    <link rel="%s" type="%s" href="%s" title="%s" />
+    ` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }} {{ end -}} {{
+    $style := resources.Get "style.css" }}
+    <link rel="stylesheet" href="{{ $style.Permalink }}" />
+  </head>
 
-</head>
-
-<body>
-
-{{ partial "nav.html" . }}
-
-<main class="content">
+  <body class="bg-stone-800 text-white p-8 flex flex-col min-h-screen">
+    {{ partial "nav.html" . }}

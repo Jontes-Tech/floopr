@@ -1,32 +1,10 @@
 baseURL = "/"
 title = "Floopr, The Free Loop Libary"
-paginate = 6
+paginate = 8
 
 [taxonomies]
   key = "key"
-  author = "author"
+  authors = "authors"
   tempo = "tempo"
   type = "type"
   timesig = "timesig"
-
-[menu]
-  [[menu.main]]
-    identifier = "about"
-    name = "About"
-    url = "/about"
-    weight = 20
-  [[menu.main]]
-    identifier = "loops"
-    name = "Loops"
-    url = "/loops"
-    weight = 30
-  [[menu.main]]
-    identifier = "terms"
-    name = "Terms of use"
-    url = "/terms"
-    weight = 40
-  [[menu.main]]
-    identifier = "contribute"
-    name = "Contribute"
-    url = "/contribute"
-    weight = 40
