@@ -283,7 +283,7 @@ Contribute to Floopr
       document.getElementById("type").value === "midi"
         ? await send(document.getElementById("audio").files[0], false)
         : "";
-    fetch("http://localhost:3000/contribute", {
+    fetch("https://api.floopr.org/contribute", {
       method: "POST",
       body: JSON.stringify({
         title: document.getElementById("title").value,
