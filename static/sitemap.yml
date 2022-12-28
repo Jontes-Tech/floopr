@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+<url>
+  <loc>https://floopr.org/</loc>
+  <lastmod>2022-12-28T09:33:37+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://floopr.org/loops/</loc>
+  <lastmod>2022-12-28T09:33:37+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://floopr.org/contribute/</loc>
+  <lastmod>2022-12-28T09:33:37+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://floopr.org/terms/</loc>
+  <lastmod>2022-12-28T09:33:37+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://floopr.org/drums/</loc>
+  <lastmod>2022-12-28T09:33:37+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://floopr.org/keys/</loc>
+  <lastmod>2022-12-28T09:33:37+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://floopr.org/authors/chriffe/</loc>
+  <lastmod>2022-12-28T09:33:37+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://floopr.org/timesig/4slash4/</loc>
+  <lastmod>2022-12-28T09:33:37+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://floopr.org/tempo/90/</loc>
+  <lastmod>2022-12-28T09:33:37+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://floopr.org/type/audio/</loc>
+  <lastmod>2022-12-28T09:33:37+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://floopr.org/key/None/</loc>
+  <lastmod>2022-12-28T09:33:37+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://floopr.org/keys/piano-pattern-1-major-1st-inversion.mid/</loc>
+  <lastmod>2022-12-28T09:33:37+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://floopr.org/tempo/100/</loc>
+  <lastmod>2022-12-28T09:33:37+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://floopr.org/type/midi/</loc>
+  <lastmod>2022-12-28T09:33:37+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://floopr.org/key/C-major/</loc>
+  <lastmod>2022-12-28T09:33:37+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://floopr.org/keys/piano-pattern-1-minor-1st-inversion.mid/</loc>
+  <lastmod>2022-12-28T09:33:37+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://floopr.org/key/C-minor/</loc>
+  <lastmod>2022-12-28T09:33:37+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://floopr.org/keys/piano-pattern-1-major-2nd-inversion.mid/</loc>
+  <lastmod>2022-12-28T09:33:37+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://floopr.org/keys/piano-pattern-1-minor-2nd-inversion.mid/</loc>
+  <lastmod>2022-12-28T09:33:37+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://floopr.org/keys/piano-pattern-1-major-3rd-inversion.mid/</loc>
+  <lastmod>2022-12-28T09:33:37+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://floopr.org/keys/piano-pattern-1-minor-3rd-inversion.mid/</loc>
+  <lastmod>2022-12-28T09:33:37+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://floopr.org/key/</loc>
+  <lastmod>2022-12-28T09:33:37+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://floopr.org/tempo/</loc>
+  <lastmod>2022-12-28T09:33:37+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://floopr.org/type/</loc>
+  <lastmod>2022-12-28T09:33:37+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://floopr.org/key/c-major/</loc>
+  <lastmod>2022-12-28T09:33:37+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://floopr.org/key/c-minor/</loc>
+  <lastmod>2022-12-28T09:33:37+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://floopr.org/key/none/</loc>
+  <lastmod>2022-12-28T09:33:37+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+
+
+</urlset>
