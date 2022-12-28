@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
 
+User-agent: *
+Disallow: /thanks/
+
 Sitemap: https://floopr.org/sitemap.yml
