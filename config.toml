@@ -1,4 +1,4 @@
-baseURL = "/"
+baseURL = "https://floopr.org"
 title = "Floopr, The Free Loop Libary"
 paginate = 8
 
