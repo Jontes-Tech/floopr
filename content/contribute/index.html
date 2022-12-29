@@ -1,12 +1,16 @@
 Contribute to Floopr
 <noscript>
-  <div class="shadow-lg bg-stone-700 rounded-lg py-5 px-6 mb-4 text-base text-gray-100 border-4 border-red-600">
-    Oh no! You aren't using Javascript. Too bad, this page needs it. 
+  <div
+    class="shadow-lg bg-stone-700 rounded-lg py-5 px-6 mb-4 text-base text-gray-100 border-4 border-red-600"
+  >
+    Oh no! You aren't using Javascript. Too bad, this page needs it.
   </div>
 </noscript>
-<div class="shadow-lg bg-stone-700 rounded-lg py-5 px-6 mb-4 text-base text-gray-100 border-4 border-red-600">
-  This page is under construction, please check back later!
-</div>
+<!-- <div
+  class="shadow-lg bg-stone-700 rounded-lg py-5 px-6 mb-4 text-base text-gray-100 border-4 border-red-600"
+>
+  We are doing maintence, please check back in half an hour.
+</div> -->
 <div class="container">
   <div class="mb-4">
     <label for="email" class="block text-sm font-medium text-white"
@@ -69,8 +73,30 @@ Contribute to Floopr
       class="w-64 border text-sm rounded-lg block p-2.5 bg-neutral-700 border-neutral-600 placeholder-neutral-400 text-white focus:ring-darkGreen focus:border-darkGreen"
     >
       <option>None</option>
+      <option>A-Minor</option>
+      <option>A-Major</option>
+      <option>A#-Minor</option>
+      <option>A#-Major</option>
+      <option>B-Minor</option>
+      <option>B-Major</option>
       <option>C-Minor</option>
       <option>C-Major</option>
+      <option>C#-Minor</option>
+      <option>C#-Major</option>
+      <option>D-Minor</option>
+      <option>D-Major</option>
+      <option>D#-Minor</option>
+      <option>D#-Major</option>
+      <option>E-Minor</option>
+      <option>E-Major</option>
+      <option>F-Minor</option>
+      <option>F-Major</option>
+      <option>F#-Minor</option>
+      <option>F#-Major</option>
+      <option>G-Minor</option>
+      <option>G-Major</option>
+      <option>G#-Minor</option>
+      <option>G#-Major</option>
     </select>
   </div>
   <div class="mb-4">
@@ -172,7 +198,8 @@ Contribute to Floopr
     <label for="terms" class="ml-2 text-sm font-medium text-gray-300"
       >I agree with the
       <a href="/terms" class="text-lightGreen hover:underline">terms</a> and the
-      fact that we store your entered details and Internet Protocol Adress (securely).</label
+      fact that we store your entered details and Internet Protocol Adress
+      (securely).</label
     >
   </div>
   <button
@@ -284,37 +311,42 @@ Contribute to Floopr
       document.getElementById("type").value === "midi"
         ? await send(document.getElementById("audio").files[0], false)
         : "";
-    fetch("https://api.floopr.org/contribute", {
-      method: "POST",
-      body: JSON.stringify({
-        title: document.getElementById("title").value,
-        category: document.getElementById("category").value,
-        email: document.getElementById("email").value,
-        creator: document.getElementById("creator").value,
-        key: document.getElementById("key").value,
-        tempo: document.getElementById("tempo").value,
-        timesig:
-          document.getElementById("timesig1").value +
-          "SLASH" +
-          document.getElementById("timesig2").value,
-        type: document.getElementById("type").value,
-        filename: String(document.getElementById("title").value)
-          .toLowerCase()
-          .replace(/[ \-]+/g, "-")
-          .replace(/[^a-z\d\-]/gi, ""),
-        description: document.getElementById("description").value,
-        audio: hash,
-        midi: document.getElementById("type").value === "midi" ? midi : "",
-        token: hcaptcha.getResponse(),
-        filetype: document
-          .getElementById("audio")
-          .files[0].name.split(".")
-          .pop(),
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
+    fetch(
+      localStorage.getItem("jontedebug")
+        ? "http://localhost:3000/contribute"
+        : "https://api.floopr.org/contribute",
+      {
+        method: "POST",
+        body: JSON.stringify({
+          title: document.getElementById("title").value,
+          category: document.getElementById("category").value,
+          email: document.getElementById("email").value,
+          creator: document.getElementById("creator").value,
+          key: document.getElementById("key").value,
+          tempo: document.getElementById("tempo").value,
+          timesig:
+            document.getElementById("timesig1").value +
+            "SLASH" +
+            document.getElementById("timesig2").value,
+          type: document.getElementById("type").value,
+          filename: String(document.getElementById("title").value)
+            .toLowerCase()
+            .replace(/[ \-]+/g, "-")
+            .replace(/[^a-z\d\-]/gi, ""),
+          description: document.getElementById("description").value,
+          audio: hash,
+          midi: document.getElementById("type").value === "midi" ? midi : "",
+          token: hcaptcha.getResponse(),
+          filetype: document
+            .getElementById("audio")
+            .files[0].name.split(".")
+            .pop(),
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    )
       .then(function (response) {
         if (!response.ok) {
           throw Error(response.statusText);
