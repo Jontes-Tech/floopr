@@ -1,6 +1,6 @@
 ---
 title: "Hiphop Beat 1"
-authors: ["Chriffe", "Bye"]
+authors: ["Chriffe"]
 files: ["mp3"]
 key: "None"
 tempo: "90"
