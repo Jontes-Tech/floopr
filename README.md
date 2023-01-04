@@ -1,50 +1,29 @@
-# Welcome to [Astro](https://astro.build)
+# Floopr - The Free And Opensource Loop Library!
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/s/github/withastro/astro/tree/latest/examples/basics)
+![Floopr Logo](/static/img/floopr.svg)
+## The Loops with Eight Billion 'Owners'
+Floopr (pronounced "Flooper") is a library of uncopyrighted loops to use in your music, both free as in cost and freedom! They are licensed under CC0 which means you are basically an owner.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Help the project!
 
-![basics](https://user-images.githubusercontent.com/4677417/186188965-73453154-fdec-4d6b-9c34-cb35c248ae5b.png)
+### By Contributing
+Please Visit [/contribute](https://floopr.org/contribute) to upload!
+Thanks for contributing.
 
+### By Donating
 
-## 🚀 Project Structure
+Donations are currently not possible.
 
-Inside of your Astro project, you'll see the following folders and files:
+## Thanks to
+Website Proudly Hosted by [Edgeserver](https://edgeserver.io) from [EdgeLabs](https://github.com/v3xlabs).  
+Made with [Astro](https://astro.build?ref=floopr.org).
 
-```
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+Thanks to Github, JSDelivr and Cloudflare for our Clearnet Content Delivery.
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Our users for contributing and spreading the word!
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Copyright
 
-Any static assets, like images, can be placed in the `public/` directory.
+The main content (anything in /static/audio) is licenced under the [CC0 License](https://creativecommons.org/share-your-work/public-domain/cc0/), while the rest is licensed under the [GPL 3.0](https://www.gnu.org/licenses/gpl-3.0.txt) license.
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                | Action                                             |
-| :--------------------- | :------------------------------------------------- |
-| `npm install`          | Installs dependencies                              |
-| `npm run dev`          | Starts local dev server at `localhost:3000`        |
-| `npm run build`        | Build your production site to `./dist/`            |
-| `npm run preview`      | Preview your build locally, before deploying       |
-| `npm run astro ...`    | Run CLI commands like `astro add`, `astro preview` |
-| `npm run astro --help` | Get help using the Astro CLI                       |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Thanks for reading the documentation. Enjoy Floopr :)
