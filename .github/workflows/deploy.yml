@@ -10,11 +10,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
-      - uses: jakejarvis/hugo-build-action@master
+        uses: actions/checkout@v2ll
+      - uses: actions/setup-node@v2
         with:
-          args: --minify --gc
-      - run: sudo rm -r public/audio
+          node-version: "16.11.0"
+          registry-url: "https://registry.npmjs.org"
+      - run: yarn
+      - name: Build
+        run: yarn build
       - name: Edgeserver Upload
         uses: lvkdotsh/edgeserver-action@master
         with:

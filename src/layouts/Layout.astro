@@ -1,0 +1,49 @@
+---
+import Footer from "../components/Footer.astro";
+import Navbar from "../components/Navbar.astro";
+const { title, description } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html class="bg-stone-900" lang="en">
+  <head>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/img/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/img/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/img/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/img/site.webmanifest" />
+    <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <link rel="icon" type="image/svg+xml" href="/img/floopr-mini.svg" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <meta charset="UTF-8" />
+    <title>{title}</title>
+    <meta
+      name="description"
+      content="Welcome to Floopr Floopr is a free music loop library. We believe that tools for music creation should be free and accessible for everyone. You may use the music loops for any purpose, without any credit to the creators. The loops are licensed under the CC0 license, meaning they are basically public domain and without copyright."
+    />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+  </head>
+  <body>
+    <div class="min-h-screen">
+      <Navbar />
+      <slot />
+    </div>
+    <Footer />
+  </body>
+</html>
