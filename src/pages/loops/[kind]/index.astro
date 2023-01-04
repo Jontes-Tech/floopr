@@ -81,13 +81,13 @@ posts = posts.filter(item=>item.url?.startsWith("/loops/"+kind))
                     <td class="py-4 px-6">
                       <audio id="audiop" controls loop>
                         {post.frontmatter.files.map((el:string) => (
-                          <source src={post.url + "." + el} />             
+                          <source src={"https://cdn.jsdelivr.net/gh/Jontes-Tech/floopr@master/public"+ post.url + "." + el} />             
                         ))}
                       </audio>
                     </td>
                     <td class="py-4 px-6">
                       {post.frontmatter.files.map((ext:string) => (
-                        <a class="hover:underline transition-all" download={"floopr-" + post.url?.split("/").pop() + "." + ext} href={post.url?.toString() + "." + ext}>{ext}</a><span>, </span>
+                        <a class="hover:underline transition-all" download={"floopr-" + post.url?.split("/").pop() + "." + ext} href={"https://cdn.jsdelivr.net/gh/Jontes-Tech/floopr@master/public"+post.url?.toString() + "." + ext}>{ext}</a><span>, </span>
                       ))}
                     </td>
                   </tr>
