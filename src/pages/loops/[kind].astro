@@ -1,0 +1,48 @@
+---
+export async function getStaticPaths() {
+  return [
+    { params: { kind: "bass" } },
+    { params: { kind: "drums" } },
+    { params: { kind: "fx" } },
+    { params: { kind: "guitar" } },
+    { params: { kind: "keys" } },
+    { params: { kind: "orchestral" } },
+    { params: { kind: "vocals" } },
+  ];
+}
+const { kind } = Astro.params;
+let capitalizedWord = "";
+import Player from "../../components/Player.svelte";
+import Layout from "../../layouts/Layout.astro";
+if (kind) {
+  const firstLetter = kind.charAt(0);
+
+  const firstLetterCap = firstLetter.toUpperCase();
+
+  const remainingLetters = kind.slice(1);
+
+  capitalizedWord = firstLetterCap + remainingLetters;
+}
+const getPosts = await Astro.glob("../**/*.md");
+const posts = getPosts.filter((item) => item.url?.startsWith("/loops/" + kind));
+---
+
+<Layout
+  title={`${capitalizedWord} loops on Floopr`}
+  description={`Find awesome ${kind} music loops on Floopr.org`}
+>
+  <div class="p-4">
+    <h1 class="text-2xl text-white font-bold">{capitalizedWord}</h1>
+    <div>
+      <div
+        class="block sm:hidden shadow-lg bg-stone-700 rounded-lg py-5 px-6 mb-4 text-base text-gray-100 border-4 border-red-600"
+      >
+        Your screen is too small! You may need to horizontally scroll.
+      </div>
+      <div class="overflow-x-auto relative shadow-2xl rounded-lg">
+        <Player client:load passedpost={posts} />
+      </div>
+    </div>
+    <div id="audio"></div>
+  </div>
+</Layout>
