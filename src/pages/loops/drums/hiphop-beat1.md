@@ -6,6 +6,5 @@ key: "None"
 tempo: "90"
 type: "audio"
 timesig: "4SLASH4"
-layout: "../../../layouts/Single.astro"
 ---
 No Description Provided

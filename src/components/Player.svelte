@@ -42,7 +42,7 @@
     {#each posts as post}
       <tr class="border-b border-neutral-700 bg-neutral-800">
         <th class="py-4 px-6 font-medium whitespace-nowrap text-white">
-          <a href={post.url}>{post.frontmatter.title}</a>
+          {post.frontmatter.title}
         </th>
         <td class="py-4 px-6">
           {post.frontmatter.authors.join(", ")}
@@ -56,12 +56,14 @@
         <td class="py-4 px-6">
           <audio id={"audiop-" + post.url} loop>
             {#each post.frontmatter.files as ext}
+            {#if ext === "mp3" || ext === "wav" || ext === "ogg"}
               <source
                 src={"https://cdn.jsdelivr.net/gh/Jontes-Tech/floopr@master/public" +
                   post.url +
                   "." +
                   ext}
               />
+              {/if}
             {/each}
           </audio>
           <button
