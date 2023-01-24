@@ -1,27 +1,19 @@
 <script defer lang="js">
-  import Soundfont from "soundfont-player";
   export let passedpost;
   let posts = passedpost.sort((a, b) =>
     a.frontmatter.title.localeCompare(b.frontmatter.title)
   );
 
   function audio(rpl) {
-    let a = document.getElementById("audiop-" + rpl);
-    document.getElementById("playbtn-" + rpl).innerHTML = a.paused
+    let jaudio = document.getElementById("audiop-" + rpl);
+    document.getElementById("playbtn-" + rpl).innerHTML = jaudio.paused
       ? '<svg style="width:24px;height:24px" viewBox="0 0 24 24"><path fill="currentColor" d="M14,19H18V5H14M6,19H10V5H6V19Z" /></svg>'
       : '<svg style="width:24px;height:24px" viewBox="0 0 24 24"><path fill="currentColor" d="M8,5.14V19.14L19,12.14L8,5.14Z" /></svg>';
-    if (!a.paused) {
-      a.pause();
+    if (!jaudio.paused) {
+      jaudio.pause();
     } else {
-      a.play();
+      jaudio.play();
     }
-  }
-  function midi(rpl) {
-    Soundfont.instrument(new AudioContext(), "acoustic_grand_piano").then(
-      function (piano) {
-        piano.play("C4");
-      }
-    );
   }
 </script>
 
@@ -56,23 +48,19 @@
         <td class="py-4 px-6">
           <audio id={"audiop-" + post.url} loop>
             {#each post.frontmatter.files as ext}
-            {#if ext === "mp3" || ext === "wav" || ext === "ogg"}
-              <source
-                src={"https://cdn.jsdelivr.net/gh/Jontes-Tech/floopr@master/public" +
-                  post.url +
-                  "." +
-                  ext}
-              />
+              {#if ext === "mp3" || ext === "wav" || ext === "ogg"}
+                <source
+                  src={"https://cdn.jsdelivr.net/gh/Jontes-Tech/floopr@master/public" +
+                    post.url +
+                    "." +
+                    ext}
+                />
               {/if}
             {/each}
           </audio>
           <button
             on:click={() => {
-              if (post.frontmatter.type === "audio") {
-                audio(post.url);
-              } else {
-                midi(post.url);
-              }
+              audio(post.url);
             }}
             id={"playbtn-" + post.url}
           >
