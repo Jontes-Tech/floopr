@@ -23,8 +23,10 @@ if (kind) {
 
   capitalizedWord = firstLetterCap + remainingLetters;
 }
-const getPosts = await Astro.glob("../**/*.md");
-const posts = getPosts.filter((item) => item.url?.startsWith("/loops/" + kind));
+// Get JSON posts from the filesystem
+const getPosts = await Astro.glob("../**/*.json");
+// Filter posts by category
+const posts = getPosts.filter((post) => post.instrument === kind);
 ---
 
 <Layout
@@ -32,15 +34,16 @@ const posts = getPosts.filter((item) => item.url?.startsWith("/loops/" + kind));
   description={`Find awesome ${kind} music loops on Floopr.org`}
 >
   <div class="p-4">
-    <h1 class="text-2xl text-white font-bold">{capitalizedWord}</h1>
-    <div>
-      <div
-        class="block sm:hidden shadow-lg bg-stone-700 rounded-lg py-5 px-6 mb-4 text-base text-gray-100 border-4 border-red-600"
+    <h1 class="text-2xl text-gray-500 cursor-default">
+      Browsing <span
+        class="font-bold hover:translate-y-[-2px] transition-all hover:shadow bg-stone-400 hover:bg-gradient-to-r from-teal-500 to-green-600 inline-block text-transparent bg-clip-text"
+        >{capitalizedWord}</span
       >
-        Your screen is too small! You may need to horizontally scroll.
-      </div>
+      <span class="sm:inline-block hidden">on Floopr</span>
+    </h1>
+    <div>
       <div class="overflow-x-auto relative shadow-2xl rounded-lg">
-        <Player client:load passedpost={posts} />
+        <Player client:load posts={posts} />
       </div>
     </div>
     <div id="audio"></div>

@@ -1,8 +1,8 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-const loops = await Astro.glob("./**/*.md");
+const loops = await Astro.glob("./**/*.json");
 // @ts-ignore
-const kinds = new Set(loops.map((loop) => loop.url.split("/")[2]));
+const kinds = new Set(loops.map((loop) => loop.instrument));
 ---
 
 <style>

@@ -1,8 +1,5 @@
 <script defer lang="js">
-  export let passedpost;
-  let posts = passedpost.sort((a, b) =>
-    a.frontmatter.title.localeCompare(b.frontmatter.title)
-  );
+  export let posts;
 
   function audio(rpl) {
     let jaudio = document.getElementById("audiop-" + rpl);
@@ -34,26 +31,23 @@
     {#each posts as post}
       <tr class="border-b border-neutral-700 bg-neutral-800">
         <th class="py-4 px-6 font-medium whitespace-nowrap text-white">
-          {post.frontmatter.title}
+          {post.title}
         </th>
         <td class="py-4 px-6">
-          {post.frontmatter.authors.join(", ")}
+          {post.authors.join(", ")}
         </td>
         <td class="py-4 px-6">
-          {post.frontmatter.timesig.replace("SLASH", "/")}
+          {post.timesig.replace("SLASH", "/")}
         </td>
-        <td class="py-4 px-6">{post.frontmatter.tempo} BPM</td>
-        <td class="py-4 px-6">{post.frontmatter.type}</td>
-        <td class="py-4 px-6">{post.frontmatter.key}</td>
+        <td class="py-4 px-6">{post.tempo} BPM</td>
+        <td class="py-4 px-6">{post.type}</td>
+        <td class="py-4 px-6">{post.key}</td>
         <td class="py-4 px-6">
           <audio id={"audiop-" + post.url} loop>
-            {#each post.frontmatter.files as ext}
+            {#each post.files as ext}
               {#if ext === "mp3" || ext === "wav" || ext === "ogg"}
                 <source
-                  src={"https://cdn.jsdelivr.net/gh/Jontes-Tech/floopr@master/public" +
-                    post.url +
-                    "." +
-                    ext}
+                  src={"/loops/" + post.instrument + "/" + post.name + "." + ext}
                 />
               {/if}
             {/each}
@@ -70,14 +64,11 @@
           </button>
         </td>
         <td class="py-4 px-6">
-          {#each post.frontmatter.files as ext}
+          {#each post.files as ext}
             <a
               class="hover:underline transition-all"
               download={"floopr-" + post.url?.split("/").pop() + "." + ext}
-              href={"https://cdn.jsdelivr.net/gh/Jontes-Tech/floopr@master/public" +
-                post.url?.toString() +
-                "." +
-                ext}>{ext}</a
+              href={"/loops/" + post.instrument + "/" + post.name + "." + ext}>{ext}</a
             ><span>, </span>
           {/each}
         </td>
