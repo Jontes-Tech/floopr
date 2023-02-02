@@ -43,20 +43,25 @@
         <td class="py-4 px-6">{post.type}</td>
         <td class="py-4 px-6">{post.key}</td>
         <td class="py-4 px-6">
-          <audio id={"audiop-" + post.url} loop>
+          <audio id={"audiop-" + post.instrument + "/" + post.name} loop>
             {#each post.files as ext}
               {#if ext === "mp3" || ext === "wav" || ext === "ogg"}
                 <source
-                  src={"/loops/" + post.instrument + "/" + post.name + "." + ext}
+                  src={"/loops/" +
+                    post.instrument +
+                    "/" +
+                    post.name +
+                    "." +
+                    ext}
                 />
               {/if}
             {/each}
           </audio>
           <button
             on:click={() => {
-              audio(post.url);
+              audio(post.instrument + "/" + post.name);
             }}
-            id={"playbtn-" + post.url}
+            id={"playbtn-" + post.instrument + "/" + post.name}
           >
             <svg style="width:24px;height:24px" viewBox="0 0 24 24">
               <path fill="currentColor" d="M8,5.14V19.14L19,12.14L8,5.14Z" />
@@ -67,8 +72,9 @@
           {#each post.files as ext}
             <a
               class="hover:underline transition-all"
-              download={"floopr-" + post.url?.split("/").pop() + "." + ext}
-              href={"/loops/" + post.instrument + "/" + post.name + "." + ext}>{ext}</a
+              download={"floopr-" + post.name + "." + ext}
+              href={"/loops/" + post.instrument + "/" + post.name + "." + ext}
+              >{ext}</a
             ><span>, </span>
           {/each}
         </td>
