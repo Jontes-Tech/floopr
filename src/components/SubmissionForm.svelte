@@ -9,8 +9,8 @@
         : "";
     fetch(
       localStorage.getItem("jontedebug")
-        ? "http://localhost:3000/contribute"
-        : "https://api.floopr.org/contribute",
+        ? "http://localhost:3000/v1/contribute"
+        : "https://api.floopr.org/v1/contribute",
       {
         method: "POST",
         body: JSON.stringify({
