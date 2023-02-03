@@ -29,7 +29,6 @@
             .toLowerCase()
             .replace(/[ \-]+/g, "-")
             .replace(/[^a-z\d\-]/gi, ""),
-          description: document.getElementById("description").value,
           audio: hash,
           midi: document.getElementById("type").value === "midi" ? midi : "",
           token: hcaptcha.getResponse(),
@@ -48,7 +47,7 @@
           throw Error(response.statusText);
         }
         alert("Thank you for submitting!");
-        console.log(captcha.token)
+        console.log(captcha.token);
         return response;
       })
       .then(function (response) {})
@@ -86,8 +85,8 @@
       return hash;
     } else {
       console.log("It's MIDI");
-      const res = await fetch("https://synth.nodesite.eu:20122/api/synth", {
-        method: "PUT",
+      const res = await fetch("https://api.floopr.org/v1/synth", {
+        method: "POST",
         body: d,
         headers: {
           "Content-Type": "audio/midi",
@@ -95,10 +94,7 @@
         },
       });
 
-      const hash =
-        res.headers.get("content-type")?.toLowerCase() == "application/json"
-          ? (await res.json()).wav
-          : await res.text();
+      const hash = res.name;
 
       return hash;
     }
@@ -261,18 +257,6 @@
         placeholder="4"
       />
     </div>
-  </div>
-  <div class="mb-4">
-    <label for="message" class="block mb-2 tex t-sm font-medium text-white"
-      >Description</label
-    >
-    <textarea
-      id="description"
-      required
-      rows="4"
-      class="block p-2.5 w-full text-sm rounded-lg border bg-neutral-700 border-neutral-600 placeholder-neutral-400 text-white focus:ring-darkGreen focus:border-darkGreen"
-      placeholder="Concisely describe your Loop."
-    />
   </div>
   <div class="mb-4">
     <label class="block mb-2 text-sm font-medium text-white" for="audio"
