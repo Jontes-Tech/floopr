@@ -2,13 +2,17 @@
   let captcha;
   import HCaptcha from "svelte-hcaptcha";
   async function submit() {
-    let hash = await send(document.getElementById("audio").files[0], true);
+    let hash = await send(document.getElementById("audio").files[0], false);
     let midi =
       document.getElementById("type").value === "midi"
-        ? await send(document.getElementById("audio").files[0], false)
+        ? await send(document.getElementById("audio").files[0], true)
         : "";
+    console.table({
+      hash: hash,
+      midi: midi,
+    });
     fetch(
-      localStorage.getItem("jontedebug")
+      !!localStorage.getItem("jontedebug")
         ? "http://localhost:3000/v1/contribute"
         : "https://api.floopr.org/v1/contribute",
       {
@@ -58,7 +62,7 @@
   }
   async function send(d, r) {
     if (document.getElementById("type").value === "audio") {
-      console.log("It's audio");
+      console.log("It's audio, we can just upload it");
       const res = await fetch("https://cdn.nodesite.eu/put", {
         method: "PUT",
         body: d,
@@ -71,7 +75,7 @@
 
       return hash;
     } else if (r) {
-      console.log("It's raw midi");
+      console.log("It's raw midi, we just need to upload it");
       const res = await fetch("https://cdn.nodesite.eu/put", {
         method: "PUT",
         body: d,
@@ -84,7 +88,7 @@
 
       return hash;
     } else {
-      console.log("It's MIDI");
+      console.log("It's MIDI and we need to synth it");
       const res = await fetch("https://api.floopr.org/v1/synth", {
         method: "POST",
         body: d,
@@ -93,9 +97,9 @@
           "Content-Length": d.length,
         },
       });
-
-      const hash = res.name;
-
+      // Parse the response as JSON, then return the name
+      const hash = (await res.json()).name;
+      console.log(hash);
       return hash;
     }
   }
@@ -146,7 +150,7 @@
       id="creator"
       name="creator"
       class="w-64 border text-sm rounded-lg block p-2.5 bg-neutral-700 border-neutral-600 placeholder-neutral-400 text-white focus:ring-darkGreen focus:border-darkGreen"
-      placeholder='"Rick Astley", "John Doe"'
+      placeholder={'"Rick Astley", "John Doe"'}
     />
   </div>
   <div class="mb-4">
