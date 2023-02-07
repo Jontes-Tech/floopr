@@ -1,7 +1,9 @@
 ---
 import Footer from "../components/Footer.astro";
 import Navbar from "../components/Navbar.astro";
-const { title, description, assignedClass } = Astro.props;
+const { title, description, assignedClass, ogImage } = Astro.props;
+const og = ogImage || "og1/floopr.webp";
+console.log(og);
 ---
 
 <!DOCTYPE html>
@@ -38,10 +40,25 @@ const { title, description, assignedClass } = Astro.props;
 
     <meta charset="UTF-8" />
     <title>{title}</title>
-    <meta
-      name="description"
-      content={description}
-    />
+    <meta name="description" content={description} />
+    <meta property="og:image" content={"/img/" + og} />
+    <meta property="og:site_name" content="Floopr" />
+    {
+      og.startsWith("instrument") && (
+        <>
+          <meta property="og:image:width" content="500" />
+          <meta property="og:image:height" content="250" />
+        </>
+      )
+    }
+    {
+      og.startsWith("instrument") && (
+        <>
+          <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="630" />
+        </>
+      )
+    }
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
   </head>

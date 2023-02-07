@@ -1,6 +1,5 @@
 <script>
-  import { onMount } from "svelte";
-  let downloads = 0;
+  let downloads = "";
 
   async function fetchData() {
     const response = await fetch(
@@ -9,8 +8,7 @@
     const json = await response.json();
     downloads = json[0].total_conversions;
   }
-
-  onMount(fetchData);
+  fetchData();
 </script>
 
 {downloads}
