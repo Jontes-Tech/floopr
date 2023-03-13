@@ -7,12 +7,14 @@ const supabase = createClient(
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.ewogICAgInJvbGUiOiAiYW5vbiIsCiAgICAiaXNzIjogInN1cGFiYXNlIiwKICAgICJpYXQiOiAxNjc4MzE2NDAwLAogICAgImV4cCI6IDE4MzYxNjkyMDAKfQ.-dDwdGLBwjnLtBuxNoZnA6WrZW1pDAMrYVrtnPR7Qms"
 );
 let kinds: any = [];
-const { data, error } = await supabase.from("loops").select("instrument");
+//@ts-ignore
+const { data, error } = await supabase.from("instruments").select();
 
 if (error) {
   console.log(error);
 } else {
   kinds = data;
+  console.log(data)
 }
 ---
 

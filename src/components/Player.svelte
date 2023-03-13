@@ -1,4 +1,5 @@
 <script>
+  export let kind
   const endings = {
     ves: "fe",
     ies: "y",
@@ -69,7 +70,7 @@
     const { data, error } = await supabase
       .from("loops")
       .select()
-      .eq("instrument", "drums");
+      .eq("instrument", kind);
 
     if (error) {
       state = "error";
@@ -165,7 +166,7 @@
           <td class="py-4 px-6">
             {#each post.files as ft}
               <a
-                class="hover:underline transition-all"
+                class="hover:underline transition-all mr-2 bg-stone-700 px-1 rounded"
                 on:click={(e) => {
                   e.preventDefault();
                   dl(post.name + "." + ft, post.instrument);
