@@ -8,6 +8,7 @@ export async function getStaticPaths() {
     { params: { kind: "keys" } },
     { params: { kind: "orchestral" } },
     { params: { kind: "vocals" } },
+    { params: { kind: "other" } },
   ];
 }
 const { kind } = Astro.params;
@@ -23,10 +24,6 @@ if (kind) {
 
   capitalizedWord = firstLetterCap + remainingLetters;
 }
-// Get JSON posts from the filesystem
-const getPosts = await Astro.glob("../**/*.json");
-// Filter posts by category
-const posts = getPosts.filter((post) => post.instrument === kind);
 ---
 
 <Layout
@@ -44,7 +41,7 @@ const posts = getPosts.filter((post) => post.instrument === kind);
     </h1>
     <div>
       <div class="overflow-x-auto relative shadow-2xl rounded-lg">
-        <Player client:load posts={posts} />
+        <Player client:load instrument={kind} />
       </div>
     </div>
     <div id="audio"></div>

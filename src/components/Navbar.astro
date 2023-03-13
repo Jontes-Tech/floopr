@@ -10,14 +10,16 @@
           class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-lightGreen hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
           aria-controls="mobile-menu"
           aria-expanded="false"
-          onclick='let x = document.getElementById("mobilethingy");
+          onclick='// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&dn=gpl-3.0.txt GPL-v3-or-Later
+          let x = document.getElementById("mobilethingy");
             if (x.style.display === "none") {
           x.style.display = "block";
               sessionStorage.setItem("collapsedmobile", "false")
           } else {
           x.style.display = "none";
           sessionStorage.setItem("collapsedmobile", "true")
-            }'
+            }
+            //license-end'
         >
           <span class="sr-only">Open main menu</span>
           <svg
@@ -113,18 +115,20 @@
     </div>
   </div>
   <script>
+    // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&dn=gpl-3.0.txt GPL-v3-or-Later
     if (sessionStorage.getItem("collapsedmobile") === "true") {
       const myElement: HTMLElement = document.getElementById(
         "mobilethingy"
       ) as HTMLElement;
       myElement.style.display = "none";
     }
-    // On window resize, check if the mobile menu is open and if it is, close it
+    // On window resize, close mobile menu because yes
     window.addEventListener("resize", function () {
       const myElement: HTMLElement = document.getElementById(
         "mobilethingy"
       ) as HTMLElement;
       myElement.style.display = "none";
     });
+    // @license-end
   </script>
 </nav>

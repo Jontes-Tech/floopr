@@ -1,8 +1,19 @@
 ---
+// We need to redeploy when adding new instruments :)
 import Layout from "../../layouts/Layout.astro";
-const loops = await Astro.glob("./**/*.json");
-// @ts-ignore
-const kinds = new Set(loops.map((loop) => loop.instrument));
+import { createClient } from "@supabase/supabase-js";
+const supabase = createClient(
+  "https://content.floopr.org",
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.ewogICAgInJvbGUiOiAiYW5vbiIsCiAgICAiaXNzIjogInN1cGFiYXNlIiwKICAgICJpYXQiOiAxNjc4MzE2NDAwLAogICAgImV4cCI6IDE4MzYxNjkyMDAKfQ.-dDwdGLBwjnLtBuxNoZnA6WrZW1pDAMrYVrtnPR7Qms"
+);
+let kinds: any = [];
+const { data, error } = await supabase.from("loops").select("instrument");
+
+if (error) {
+  console.log(error);
+} else {
+  kinds = data;
+}
 ---
 
 <style>
@@ -25,7 +36,7 @@ const kinds = new Set(loops.map((loop) => loop.instrument));
     border-radius: 4px;
     transition: all 500ms;
     overflow: hidden;
-
+    margin: 4px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -38,9 +49,14 @@ const kinds = new Set(loops.map((loop) => loop.instrument));
 </style>
 <Layout title="Select a Floopr Category">
   <section class="basic-grid p-4">
-      {[...kinds].map(kind => (
-        <a href={"/loops/"+kind}>
-          <img class="card" src={"/img/instrument/"+kind+".webp"} alt={kind} />
+    {
+      [...kinds].map((kind) => (
+        <a href={"/loops/" + kind.instrument} class="rounded-lg">
+          <img
+            class="card"
+            src={"/img/instrument/" + kind.instrument + ".webp"}
+            alt={kind.instrument.toUpperCase()}
+          />
         </a>
       ))
     }
