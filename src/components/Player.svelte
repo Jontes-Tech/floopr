@@ -9,6 +9,8 @@
     s: "",
   };
   let playingRPL = "";
+
+  // Hey look, I know the dl() blob "solution" is a horible one, but here's the thing: I don't care.
   function dl(rpl, instrument) {
     // RPL stands for relative permalink
     fetch(
@@ -164,7 +166,10 @@
             {#each post.files as ft}
               <a
                 class="hover:underline transition-all"
-                download
+                on:click={(e) => {
+                  e.preventDefault();
+                  dl(post.name + "." + ft, post.instrument);
+                }}
                 href={"https://content.floopr.org/storage/v1/object/public/loops/" +
                   post.instrument +
                   "/" +
