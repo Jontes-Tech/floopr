@@ -1,5 +1,5 @@
 <script>
-  export let kind
+  export let kind;
   const endings = {
     ves: "fe",
     ies: "y",
@@ -15,8 +15,9 @@
   function dl(rpl, instrument) {
     // RPL stands for relative permalink
     fetch(
-      `https://content.floopr.org/storage/v1/object/public/loops/` +
-        instrument + "/" +
+      `https://cdn.jsdelivr.net/gh/floopr/content@latest/` +
+        instrument +
+        "/" +
         rpl
     )
       .then((response) => response.blob())
@@ -37,9 +38,6 @@
   }
   function audio(rpl) {
     let jaudio = document.getElementById("audiop-" + rpl);
-    document.getElementById("playbtn-" + rpl).innerHTML = jaudio.paused
-      ? '<svg style="width:24px;height:24px" viewBox="0 0 24 24"><path fill="currentColor" d="M14,19H18V5H14M6,19H10V5H6V19Z" /></svg>'
-      : '<svg style="width:24px;height:24px" viewBox="0 0 24 24"><path fill="currentColor" d="M8,5.14V19.14L19,12.14L8,5.14Z" /></svg>';
     if (!jaudio.paused) {
       playingRPL = "";
       jaudio.pause();
@@ -53,7 +51,6 @@
       }
       jaudio.play();
       playingRPL = rpl;
-      console.log(playingRPL);
     }
   }
 
@@ -92,7 +89,6 @@
       <th id="tempo" scope="col" class="py-3 px-4">Tempo</th>
       <th id="type" scope="col" class="py-3 px-4">Type</th>
       <th id="key" scope="col" class="py-3 px-4">Key</th>
-      <th scope="col" class="py-3 px-4">Play</th>
       <th scope="col" class="py-3 px-4">Download</th>
     </tr>
   </thead>
@@ -115,7 +111,24 @@
       </tr>
     {:else if state === "loaded"}
       {#each loops as post}
+        {#each post.files as ft}
+          {#if ft === "mp3" || ft === "wav" || ft === "ogg"}
+            <audio
+              id={"audiop-" + post.instrument.toLowerCase() + "/" + post.name}
+              loop
+              src={"https://cdn.jsdelivr.net/gh/floopr/content@latest/" +
+                post.instrument +
+                "/" +
+                post.name +
+                "." +
+                ft}
+            />
+          {/if}
+        {/each}
         <tr
+          on:click|stopPropagation={() => {
+            audio(post.instrument.toLowerCase() + "/" + post.name);
+          }}
           class={"border-neutral-700 " +
             (playingRPL == post.instrument + "/" + post.name
               ? "bg-[#23352a]"
@@ -131,47 +144,18 @@
             {post.timesig}
           </td>
           <td class="py-4 px-6">{post.tempo.toString()} BPM</td>
-          <td class="py-4 px-6">{post.filetype === "mid" ? "Midi" : "Audio"}</td
+          <td class="py-4 px-6"
+            >{post.files.includes("mid") ? "Midi" : "Audio"}</td
           >
           <td class="py-4 px-6">{post.key}</td>
           <td class="py-4 px-6">
             {#each post.files as ft}
-              {#if ft === "mp3" || ft === "wav" || ft === "ogg"}
-                <audio
-                  id={"audiop-" +
-                    post.instrument.toLowerCase() +
-                    "/" +
-                    post.name}
-                  loop
-                  src={"https://content.floopr.org/storage/v1/object/public/loops/" +
-                    post.instrument +
-                    "/" +
-                    post.name +
-                    "." +
-                    ft}
-                />
-              {/if}
-            {/each}
-            <button
-              id={"playbtn-" + post.instrument.toLowerCase() + "/" + post.name}
-              on:click={() => {
-                audio(post.instrument.toLowerCase() + "/" + post.name);
-              }}
-            >
-              <svg style="width:24px;height:24px" viewBox="0 0 24 24">
-                <path fill="currentColor" d="M8,5.14V19.14L19,12.14L8,5.14Z" />
-              </svg>
-            </button>
-          </td>
-          <td class="py-4 px-6">
-            {#each post.files as ft}
               <a
-                class="hover:underline transition-all mr-2 bg-stone-700 px-1 rounded"
-                on:click={(e) => {
-                  e.preventDefault();
+                class="transition-all mr-2 bg-stone-700 px-1 rounded hover:shadow hover:outline-green-600 hover:outline hover:outline-1"
+                on:click|preventDefault|stopPropagation={() => {
                   dl(post.name + "." + ft, post.instrument);
                 }}
-                href={"https://content.floopr.org/storage/v1/object/public/loops/" +
+                href={"https://cdn.jsdelivr.net/gh/floopr/content@latest/" +
                   post.instrument +
                   "/" +
                   post.name +

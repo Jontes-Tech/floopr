@@ -294,13 +294,13 @@
       </div>
       <label for="terms" class="ml-2 text-sm font-medium text-gray-300"
         >I agree with the
-        <a href="/terms" class="text-lightGreen hover:underline">terms</a> and the
+        <a href="/terms" class="text-green-600 hover:underline">terms</a> and the
         fact that we store your entered details and Internet Protocol Adress (securely).</label
       >
     </div>
     <button
       type="submit"
-      class="text-white focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-darkGreen focus:ring-lightGreen"
+      class="text-white focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-darkGreen focus:ring-green-600"
     >
       Upload to Floopr.org
     </button>
