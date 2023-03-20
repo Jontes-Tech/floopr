@@ -24,12 +24,16 @@ if (kind) {
 
   capitalizedWord = firstLetterCap + remainingLetters;
 }
+// Get JSON posts from the filesystem
+const getLoops = await Astro.glob("../../../loops/**/*.json");
+// Filter posts by category
+const loops = getLoops.filter((loop) => loop.instrument === kind);
 ---
 
 <Layout
   title={`${capitalizedWord} loops on Floopr`}
   description={`Find awesome ${kind} music loops on Floopr.org`}
-  ogImage={"instrument/"+kind+".webp"}
+  ogImage={"instrument/" + kind + ".webp"}
 >
   <div class="p-4">
     <h1 class="text-2xl text-gray-500 cursor-default">
@@ -40,8 +44,8 @@ if (kind) {
       <span class="sm:inline-block hidden">on Floopr</span>
     </h1>
     <div>
-      <div class="overflow-x-auto relative shadow-2xl rounded-lg">
-        <Player client:load kind={kind} />
+      <div class="overflow-x-auto relative shadow-lg rounded">
+        <Player client:load loops={loops} />
       </div>
     </div>
     <div id="audio"></div>

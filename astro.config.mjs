@@ -16,5 +16,5 @@ import sitemap from "@astrojs/sitemap";
 // https://astro.build/config
 export default defineConfig({
   site: "https://floopr.org",
-  integrations: [tailwind(), robotsTxt(), svelte(), prefetch(), sitemap()],
+  integrations: [tailwind(), robotsTxt(), svelte(), prefetch({selector: "a"}), sitemap()],
 });

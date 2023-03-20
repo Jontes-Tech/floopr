@@ -1,5 +1,5 @@
 <script>
-  export let kind;
+  export let loops;
   const endings = {
     ves: "fe",
     ies: "y",
@@ -15,7 +15,7 @@
   function dl(rpl, instrument) {
     // RPL stands for relative permalink
     fetch(
-      `https://cdn.jsdelivr.net/gh/floopr/content@latest/` +
+      `https://cdn.jsdelivr.net/gh/Jontes-Tech/floopr@latest/loops` +
         instrument +
         "/" +
         rpl
@@ -46,38 +46,15 @@
       const audioElements = document.getElementsByTagName("audio");
 
       // iterate through each audio element and pause it
-      for (let i = 0; i < audioElements.length; i++) {
-        audioElements[i].pause();
+      if (audioElements.length) {
+        for (let i = 0; i < audioElements.length; i++) {
+          audioElements[i].pause();
+        }
       }
       jaudio.play();
       playingRPL = rpl;
     }
   }
-
-  import { createClient } from "@supabase/supabase-js";
-  // Create a single supabase client for interacting with your database
-  const supabase = createClient(
-    "https://content.floopr.org",
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.ewogICAgInJvbGUiOiAiYW5vbiIsCiAgICAiaXNzIjogInN1cGFiYXNlIiwKICAgICJpYXQiOiAxNjc4MzE2NDAwLAogICAgImV4cCI6IDE4MzYxNjkyMDAKfQ.-dDwdGLBwjnLtBuxNoZnA6WrZW1pDAMrYVrtnPR7Qms"
-  );
-  let loops = [];
-  let state = "default";
-  async function fetchData() {
-    state = "loading";
-    const { data, error } = await supabase
-      .from("loops")
-      .select()
-      .eq("instrument", kind);
-
-    if (error) {
-      state = "error";
-      console.log(error);
-    } else {
-      state = "loaded";
-      loops = data;
-    }
-  }
-  fetchData();
 </script>
 
 <table class="w-full text-sm text-left text-stone-400 bg-neutral-900">
@@ -93,83 +70,61 @@
     </tr>
   </thead>
   <tbody>
-    {#if state === "default"}
-      <tr class="border-neutral-700 bg-neutral-800">
-        <td class="py-4 px-6" colspan="8"
-          >Loading (Did you enable JavaScript?)</td
-        >
-      </tr>
-    {:else if state === "loading"}
-      <tr class="border-b border-neutral-700 bg-neutral-800">
-        <td class="py-4 px-6" colspan="8">Loading</td>
-      </tr>
-    {:else if loops.length === 0}
-      <tr class="border-b border-neutral-700 bg-neutral-800">
-        <td class="py-4 px-6" colspan="8"
-          >No loops found with this instrument :/</td
-        >
-      </tr>
-    {:else if state === "loaded"}
-      {#each loops as post}
-        {#each post.files as ft}
-          {#if ft === "mp3" || ft === "wav" || ft === "ogg"}
-            <audio
-              id={"audiop-" + post.instrument.toLowerCase() + "/" + post.name}
-              loop
-              src={"https://cdn.jsdelivr.net/gh/floopr/content@latest/" +
-                post.instrument +
-                "/" +
-                post.name +
-                "." +
-                ft}
-            />
-          {/if}
-        {/each}
-        <tr
-          on:click|stopPropagation={() => {
-            audio(post.instrument.toLowerCase() + "/" + post.name);
-          }}
-          class={"border-neutral-700 " +
-            (playingRPL == post.instrument + "/" + post.name
-              ? "bg-[#23352a]"
-              : "bg-neutral-800")}
-        >
-          <th class="py-4 px-6 font-medium whitespace-nowrap text-white">
-            {post.title}
-          </th>
-          <td class="py-4 px-6">
-            {post.authors.join(", ")}
-          </td>
-          <td class="py-4 px-6">
-            {post.timesig}
-          </td>
-          <td class="py-4 px-6">{post.tempo.toString()} BPM</td>
-          <td class="py-4 px-6"
-            >{post.files.includes("mid") ? "Midi" : "Audio"}</td
-          >
-          <td class="py-4 px-6">{post.key}</td>
-          <td class="py-4 px-6">
-            {#each post.files as ft}
-              <a
-                class="transition-all mr-2 bg-stone-700 px-1 rounded hover:shadow hover:outline-green-600 hover:outline hover:outline-1"
-                on:click|preventDefault|stopPropagation={() => {
-                  dl(post.name + "." + ft, post.instrument);
-                }}
-                href={"https://cdn.jsdelivr.net/gh/floopr/content@latest/" +
-                  post.instrument +
-                  "/" +
-                  post.name +
-                  "." +
-                  ft}>{ft}</a
-              >
-            {/each}
-          </td>
-        </tr>
+    {#each loops as loop}
+      {#each loop.files as ft}
+        {#if ft === "mp3" || ft === "wav" || ft === "ogg"}
+          <audio
+            id={"audiop-" + loop.instrument.toLowerCase() + "/" + loop.name}
+            loop
+            src={"https://cdn.jsdelivr.net/gh/Jontes-Tech/floopr@latest/loops" +
+              loop.instrument +
+              "/" +
+              loop.name +
+              "." +
+              ft}
+          />
+        {/if}
       {/each}
-    {:else}
-      <tr class="border-b border-neutral-700 bg-neutral-800">
-        <td class="py-4 px-6" colspan="8">Error</td>
+      <tr
+        on:click|stopPropagation={() => {
+          audio(loop.instrument.toLowerCase() + "/" + loop.name);
+        }}
+        class={"border-neutral-700 " +
+          (playingRPL == loop.instrument + "/" + loop.name
+            ? "bg-[#23352a]"
+            : "bg-neutral-800")}
+      >
+        <th class="py-4 px-6 font-medium whitespace-nowrap text-white">
+          {loop.title}
+        </th>
+        <td class="py-4 px-6">
+          {loop.authors.join(", ")}
+        </td>
+        <td class="py-4 px-6">
+          {loop.timesig}
+        </td>
+        <td class="py-4 px-6">{loop.tempo.toString()} BPM</td>
+        <td class="py-4 px-6"
+          >{loop.files.includes("mid") ? "Midi" : "Audio"}</td
+        >
+        <td class="py-4 px-6">{loop.key}</td>
+        <td class="py-4 px-6">
+          {#each loop.files as ft}
+            <a
+              class="transition-all mr-2 bg-stone-700 px-1 rounded hover:shadow hover:outline-green-600 hover:outline hover:outline-1"
+              on:click|preventDefault|stopPropagation={() => {
+                dl(loop.name + "." + ft, loop.instrument);
+              }}
+              href={"https://cdn.jsdelivr.net/gh/Jontes-Tech/floopr@latest/loops" +
+                loop.instrument +
+                "/" +
+                loop.name +
+                "." +
+                ft}>{ft}</a
+            >
+          {/each}
+        </td>
       </tr>
-    {/if}
+    {/each}
   </tbody>
 </table>
