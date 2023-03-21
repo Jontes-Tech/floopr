@@ -3,7 +3,6 @@ import Layout from "../../layouts/Layout.astro";
 const loops = await Astro.glob("../../../loops/**/*.json");
 // @ts-ignore
 const kinds = new Set(loops.map((loop) => loop.instrument));
-console.log(kinds);
 ---
 
 <style>

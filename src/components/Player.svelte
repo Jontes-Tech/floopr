@@ -15,7 +15,7 @@
   function dl(rpl, instrument) {
     // RPL stands for relative permalink
     fetch(
-      `https://cdn.jsdelivr.net/gh/Jontes-Tech/floopr@latest/loops` +
+      `https://cdn.jsdelivr.net/gh/Jontes-Tech/floopr@latest/loops/` +
         instrument +
         "/" +
         rpl
@@ -76,7 +76,7 @@
           <audio
             id={"audiop-" + loop.instrument.toLowerCase() + "/" + loop.name}
             loop
-            src={"https://cdn.jsdelivr.net/gh/Jontes-Tech/floopr@latest/loops" +
+            src={"https://cdn.jsdelivr.net/gh/Jontes-Tech/floopr@latest/loops/" +
               loop.instrument +
               "/" +
               loop.name +
@@ -115,7 +115,7 @@
               on:click|preventDefault|stopPropagation={() => {
                 dl(loop.name + "." + ft, loop.instrument);
               }}
-              href={"https://cdn.jsdelivr.net/gh/Jontes-Tech/floopr@latest/loops" +
+              href={"https://cdn.jsdelivr.net/gh/Jontes-Tech/floopr@latest/loops/" +
                 loop.instrument +
                 "/" +
                 loop.name +
