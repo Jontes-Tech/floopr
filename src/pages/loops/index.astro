@@ -3,7 +3,7 @@ import Layout from "../../layouts/Layout.astro";
 const loops = await Astro.glob("../../../loops/**/*.json");
 // @ts-ignore
 const kinds = new Set(loops.map((loop) => loop.instrument));
-console.log(kinds)
+console.log(kinds);
 ---
 
 <style>
@@ -28,10 +28,35 @@ console.log(kinds)
 </style>
 <Layout title="Select a Floopr Category">
   <section class="basic-grid p-4">
-    {[...kinds].map(kind => (
-      <a href={"/loops/"+kind}>
-        <img class="card rounded shadow-md hover:shadow-lg hover:translate-y-[-4px]" src={"/img/instrument/"+kind+".webp"} alt={kind} />
-      </a>
-    ))}
+    {
+      [...kinds].map((kind) => (
+        <a class="acard" href={"/loops/" + kind}>
+          <img
+            class="card rounded shadow-md hover:shadow-lg hover:translate-y-[-6px]"
+            src={"/img/instrument/" + kind + ".webp"}
+            alt={kind}
+          />
+        </a>
+      ))
+    }
   </section>
 </Layout>
+<script>
+  let i = 1;
+  const cards = document.getElementsByClassName("acard");
+  document.addEventListener("keydown", (e) => {
+    const code = e.key;
+    if (e.code == "ArrowRight") {
+      if (i < cards.length) {
+        i++;
+      }
+    }
+    if (e.code == "ArrowLeft") {
+      if (i > 1) {
+        i--;
+      }
+    }
+    //@ts-ignore
+    cards[i-1].focus()
+  });
+</script>
