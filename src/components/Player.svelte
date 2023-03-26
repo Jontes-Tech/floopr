@@ -74,12 +74,12 @@
       {#each loop.files as ft}
         {#if ft === "mp3" || ft === "wav" || ft === "ogg"}
           <audio
-            id={"audiop-" + loop.instrument.toLowerCase() + "/" + loop.name}
+            id={"audiop-" + loop.instrument.toLowerCase() + "/" + loop._id}
             loop
             src={"https://cdn.jsdelivr.net/gh/Jontes-Tech/floopr@latest/loops/" +
               loop.instrument +
               "/" +
-              loop.name +
+              loop._id +
               "." +
               ft}
           />
@@ -87,10 +87,10 @@
       {/each}
       <tr
         on:click|stopPropagation={() => {
-          audio(loop.instrument.toLowerCase() + "/" + loop.name);
+          audio(loop.instrument.toLowerCase() + "/" + loop._id);
         }}
         class={"border-neutral-700 " +
-          (playingRPL == loop.instrument + "/" + loop.name
+          (playingRPL == loop.instrument + "/" + loop._id
             ? "bg-[#23352a]"
             : "bg-neutral-800")}
       >
@@ -113,12 +113,12 @@
             <a
               class="transition-all mr-2 bg-stone-700 px-1 rounded hover:shadow hover:outline-green-600 hover:outline hover:outline-1"
               on:click|preventDefault|stopPropagation={() => {
-                dl(loop.name + "." + ft, loop.instrument);
+                dl(loop._id + "." + ft, loop.instrument);
               }}
               href={"https://cdn.jsdelivr.net/gh/Jontes-Tech/floopr@latest/loops/" +
                 loop.instrument +
                 "/" +
-                loop.name +
+                loop._id +
                 "." +
                 ft}>{ft}</a
             >

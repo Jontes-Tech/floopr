@@ -6,6 +6,6 @@
   "tempo": "90",
   "type": "audio",
   "timesig": "4SLASH4",
-  "name": "hiphop-beat1",
+  "_id": "hiphop-beat1",
   "instrument": "drums"
 }

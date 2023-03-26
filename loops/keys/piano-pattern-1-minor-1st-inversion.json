@@ -7,5 +7,5 @@
   "type": "midi",
   "timesig": "4SLASH4",
   "instrument": "keys",
-  "name": "piano-pattern-1-minor-1st-inversion"
+  "_id": "piano-pattern-1-minor-1st-inversion"
 }
