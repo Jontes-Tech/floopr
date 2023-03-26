@@ -5,7 +5,7 @@
   "key": "C-major",
   "tempo": "100",
   "type": "midi",
-  "timesig": "4SLASH4",
+  "timesig": "4/4",
   "instrument": "keys",
   "_id": "piano-pattern-1-major-2nd-inversion"
 }
